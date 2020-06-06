@@ -29,7 +29,17 @@ def cleanup(text):
 
 
 def parse(path):
-    return parser.from_file(path)['content']
+    try:
+        content = parser.from_file(path)['content']
+    except:
+        print('can not parse', path)
+        content = None
+
+    if content is None:
+        content = ''
+        print('can not read', path)
+
+    return content
 
 
 def process(file_id, item_id, collection_id, collection_name, file_path):
