@@ -32,7 +32,7 @@ def parse(path):
     return parser.from_file(path)['content']
 
 
-def process(item_id, collection_id, collection_name, file_path):
+def process(file_id, item_id, collection_id, collection_name, file_path):
     print('process', file_path)
     text = parse(file_path)
     print('parsed')
@@ -40,4 +40,4 @@ def process(item_id, collection_id, collection_name, file_path):
     print('cleaned')
     text = normalize(text)
     print('normalized')
-    return item_id, collection_id, collection_name, text
+    return file_id, item_id, collection_id, collection_name, text
