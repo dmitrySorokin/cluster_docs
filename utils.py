@@ -15,7 +15,7 @@ def normalize(text):
         stem_tag = tag[0].lower()
         if stem_tag not in ['a', 's', 'r', 'n', 'v']:
             stem_tag = 'n'
-        word = _LEM.lemmatize(word, stem_tag)
+        word = _LEM.lemmatize(word.lower(), stem_tag)
         normalized_words.append(word)
 
     # TODO merge not, merge collocations?
