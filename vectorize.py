@@ -5,6 +5,7 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+from sklearn.cluster import KMeans
 
 from nltk.corpus import stopwords
 import pandas as pd
@@ -72,6 +73,10 @@ def lda(corpus):
     ).fit_transform(tf)
 
 
+def cluster(vec, n_clusters):
+    return KMeans(n_clusters, random_state=42).fit(vec).labels_
+
+
 def lbl2color(l):
     colors = [
         "#cc4767", "#6f312a", "#d59081", "#d14530", "#d27f35",
@@ -85,6 +90,8 @@ def lbl2color(l):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', choices=['word2vec', 'doc2vec', 'lsa', 'lda'])
+    parser.add_argument('--labels', choices=['db', 'cluster'])
+    parser.add_argument('--save', type=str, default=None)
     args = parser.parse_args()
 
     conn = sqlite3.connect('data/mouse.sqlite')
@@ -92,8 +99,6 @@ if __name__ == '__main__':
 
     files = pd.read_sql('SELECT * FROM Files', conn)
 
-    labels = [list(map(int, ids.split(','))) for ids in files['label_ids']]
-    print(len(labels))
     texts = [list(filter(lambda w: w not in stops, text.split())) for text in files['text']]
     text_ids = list(map(int, files['file_id']))
 
@@ -108,14 +113,32 @@ if __name__ == '__main__':
     else:
         assert False, '{} is not implemented'.format(args.type)
 
+    if args.labels == 'db':
+        labels = [list(map(int, ids.split(','))) for ids in files['label_ids']]
+    elif args.labels == 'cluster':
+        labels = cluster(vectors, n_clusters=9)
+    else:
+        assert False, '{} is not implemented'.format(args.labels)
+
+    if args.save:
+        with open('{}.csv'.format(args.save), 'w') as out:
+            file_path = list(files['file_path'])
+            out.write('file_id\tfile_path\tlabel\n')
+            for i in np.argsort(labels):
+                out.write('{}\t{}\t{}\n'.format(text_ids[i], file_path[i], labels[i]))
+
     #vectors = PCA(n_components=30).fit_transform(vectors)
 
     emb = TSNE(random_state=42).fit_transform(vectors)
     print(emb.shape)
 
     for i in range(len(emb)):
-        plt.plot(emb[i][0], emb[i][1], lbl2color(labels[i][0]), marker='')
-        for lbl in labels[i]:
-            plt.text(emb[i][0], emb[i][1], str(lbl), color=lbl2color(lbl), fontsize=12)
+        plt.plot(emb[i][0], emb[i][1], marker='')
+        if args.labels == 'db':
+            for lbl in labels[i]:
+                plt.text(emb[i][0], emb[i][1], str(lbl), color=lbl2color(lbl), fontsize=12)
+        elif args.labels == 'cluster':
+            plt.text(emb[i][0], emb[i][1], str(labels[i]), color=lbl2color(labels[i]), fontsize=12)
+
     plt.axis('off')
     plt.show()
