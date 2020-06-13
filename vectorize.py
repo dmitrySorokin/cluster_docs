@@ -64,7 +64,11 @@ def lsa(corpus):
 def lda(corpus):
     tf = CountVectorizer().fit_transform(corpus)
     return LatentDirichletAllocation(
-        n_components=100, random_state=42, n_jobs=4).fit_transform(tf).toarray()
+        n_components=100,
+        random_state=42,
+        n_jobs=-1,
+        verbose=1
+    ).fit_transform(tf).toarray()
 
 
 def lbl2color(l):
