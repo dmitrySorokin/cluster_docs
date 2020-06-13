@@ -38,9 +38,10 @@ def w2v(data, model_path='data/word2vec_sg0'):
 
 
 def d2v(data, ids, model_path='data/doc2vec_dm1'):
-    tagged_data = []
-    for text_id, text in zip(ids, data):
-        tagged_data.append(TaggedDocument(words=text, tags=[text_id]))
+    tagged_data = [
+        TaggedDocument(words=text, tags=[text_id])
+        for text, text_id in zip(data, ids)
+    ]
 
     if os.path.isfile(model_path):
         model = Doc2Vec.load(model_path)
@@ -62,13 +63,13 @@ def lsa(corpus):
 
 
 def lda(corpus):
-    tf = CountVectorizer().fit_transform(corpus)
+    tf = CountVectorizer().fit_transform(corpus).toarray()
     return LatentDirichletAllocation(
         n_components=100,
         random_state=42,
         n_jobs=-1,
         verbose=1
-    ).fit_transform(tf).toarray()
+    ).fit_transform(tf)
 
 
 def lbl2color(l):
@@ -104,7 +105,6 @@ if __name__ == '__main__':
         vectors = lsa(files['text'])
     elif args.type == 'lda':
         vectors = lda(files['text'])
-        print(vectors.shape)
     else:
         assert False, '{} is not implemented'.format(args.type)
 
