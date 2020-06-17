@@ -16,6 +16,8 @@ import os
 import argparse
 from sklearn.decomposition import PCA
 
+from viz import contingency_matrix as cmat
+
 
 def w2v(data, model_path='data/word2vec_sg0'):
     if os.path.isfile(model_path):
@@ -92,6 +94,7 @@ if __name__ == '__main__':
     parser.add_argument('--type', choices=['word2vec', 'doc2vec', 'lsa', 'lda'])
     parser.add_argument('--labels', choices=['db', 'cluster'])
     parser.add_argument('--save', type=str, default=None)
+    parser.add_argument('--cmat', action='store_true')
     args = parser.parse_args()
 
     conn = sqlite3.connect('data/mouse.sqlite')
@@ -142,3 +145,27 @@ if __name__ == '__main__':
 
     plt.axis('off')
     plt.show()
+
+    if args.cmat:
+        db_labels = pd.read_sql("SELECT * FROM Labels", conn)
+        i2l = dict(zip(db_labels['label_id'], db_labels['label_desc']))
+        df = files
+        y = [int(x.split(',')[0]) for x in df['label_ids']]  # FIXME only first
+        y_pred = labels  # FIXME Only for --labels cluster
+        y_labels = [i2l[x] for x in y]  # None
+        df['labels'] = [','.join(i2l[int(l)] for l in x.split(','))
+                        for x in df['label_ids']]
+        del df['text']  # due to performance issues
+        cmat(X=emb,
+             y=y,
+             y_pred=y_pred,
+             df=df,
+             tooltip_cols=['file_id',
+                           'file_path',
+                           'label_ids',
+                           'labels'],
+             y_labels=y_labels,
+             y_pred_labels=None,
+             cmap='tableau20',  # https://vega.github.io/vega/docs/schemes/
+             filename='cm.html',
+             sort=True)
