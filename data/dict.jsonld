@@ -1,0 +1,2897 @@
+{
+  "@context": {
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dict": "http://www.ibrae.ac.ru/rdf/dict#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "vann": "http://purl.org/vocab/vann/",
+    "unit": "http://qudt.org/vocab/unit#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos:prefLabel": {
+      "@container": "@language"
+    },
+    "skos:altLabel": {
+      "@container": "@language"
+    },
+    "skos:hiddenLabel": {
+      "@container": "@language"
+    },
+    "skos:note": {
+      "@container": "@language"
+    },
+    "skos:changeNote": {
+      "@container": "@language"
+    },
+    "skos:definition": {
+      "@container": "@language"
+    },
+    "skos:editorialNote": {
+      "@container": "@language"
+    },
+    "skos:example": {
+      "@container": "@language"
+    },
+    "skos:historyNote": {
+      "@container": "@language"
+    },
+    "skos:scopeNote": {
+      "@container": "@language"
+    },
+    "skos:inScheme": {
+      "@type": "@id"
+    },
+    "skos:broader": {
+      "@type": "@id"
+    },
+    "skos:related": {
+      "@type": "@id"
+    },
+    "rdfs:label": {
+      "@container": "@language"
+    },
+    "rdfs:comment": {
+      "@container": "@language"
+    },
+    "dcterms:title": {
+      "@container": "@language"
+    },
+    "dcterms:abstract": {
+      "@container": "@language"
+    },
+    "dcterms:definition": {
+      "@container": "@language"
+    },
+    "dcterms:subject": {
+      "@container": "@language"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "http://www.ibrae.ac.ru/rdf/dict",
+      "@type": [
+        "skos:ConceptScheme",
+        "owl:Ontology"
+      ],
+      "vann:preferredNamespacePrefix": "dict",
+      "vann:preferredNamespaceUri": "http://www.ibrae.ac.ru/rdf/dict#",
+      "dcterms:title": {
+        "en": "Dictionary",
+        "ru": "Словарь"
+      },
+      "dcterms:subject": {
+        "en": "Dictionary used in the project",
+        "ru": "Словарь используемый в проекте"
+      }
+    },
+    {
+      "@id": "dict:Analysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "analysis",
+        "ru": "анализ"
+      },
+      "skos:definition": {
+        "en": "Often used interchangeably with assessment, especially in more specific terms such as safety analysis.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "In general, however, analysis suggests a more narrowly technical process than assessment, aimed at understanding the subject\nof the analysis rather than determining whether or not it is acceptable. Analysis\nis also often associated with the use of a specific technique. Hence, one or more forms of analysis may be used in assessment."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Assessment",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "assessment",
+        "ru": "оценка"
+      },
+      "skos:definition": {
+        "en": "The process, and the result, of analysing systematically the hazards associated with sources and practices, and associated protection and safety measures, aimed at quantifying performance measures for comparison with criteria.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "Assessment should be distinguished from analysis. Assessment is aimed at providing information that forms the basis of a decision whether something is satisfactory or not. Various kinds of analysis may be used as tools in doing this. Hence an assessment may include a number of analyses."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:BacterialCorrosion",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "bacterial corrosion",
+        "ru": "бактериальная коррозия"
+      },
+      "skos:altLabel": {
+        "en": [
+          "microbial corrosion",
+          "mic",
+          "bacteria-assisted corrosion",
+          "bacteria-induced corrosion",
+          "biocorrosion",
+          "biological corrosion",
+          "microbiological corrosion",
+          "microbiologically-influenced corrosion"
+        ],
+        "ru": [
+          "микробная коррозия",
+          "биокоррозия",
+          "биологическая коррозия",
+          "микробиологическая коррозия",
+          "МБК"
+        ]
+      },
+      "skos:definition": {
+        "en": "Microbial corrosion, also called bacterial corrosion, bio-corrosion, microbiologically influenced corrosion, or microbially induced corrosion (MIC), is corrosion caused or promoted by microorganisms, usually chemoautotrophs. It can apply to both metals and non-metallic materials.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Corrosion",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Bentonite",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "bentonite",
+        "ru": "бентонит"
+      },
+      "skos:definition": {
+        "en": "Bentonite is a clay generated frequently from the alteration of volcanic ash, consisting predominantly of smectite minerals, usually montmorillonite.",
+        "ru": "Бентони́т (назван по месторождению Бентон, США) — природный глинистый минерал, гидроалюмосиликат, обладает свойством разбухать при гидратации (в 14—16 раз)."
+      },
+      "skos:note": {
+        "en": [
+          "The main uses of bentonite are for drilling mud, binder (e.g. foundry-sand bond, iron ore pelletizer), purifier, absorbent (e.g. pet litter), and as a groundwater barrier.",
+          "The special properties of bentonite (hydration, swelling, water absorption, viscosity, thixotropy) make it a valuable material for a wide range of uses and applications."
+        ],
+        "ru": [
+          "В ограниченном пространстве при свободном разбухании в присутствии воды образуется плотный гель, препятствующий дальнейшему проникновению влаги.",
+          "Существуют два типа бентонитов: кальциевый, с низкой степенью набухания; натриевый, с высокой степенью набухания (скорость вспучивания менее 7 мл/г или более 12 мл/г)."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:BentoniteGMZ",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "Gaomiaozi bentonite",
+        "ru": "Gaomiaozi бентонит"
+      },
+      "skos:altLabel": {
+        "en": [
+          "GMZ",
+          "bentonite"
+        ],
+        "ru": [
+          "бентонит"
+        ]
+      },
+      "skos:definition": {
+        "en": "Gaomiaozi (GMZ) bentonite produced in Inner Mongolia has been chosen as a matrix material of buffer/backfill materials in the deep geological disposal to isolate the high level radioactive waste in China.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Bentonite",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Buffer",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "buffer",
+        "ru": "буфер"
+      },
+      "skos:altLabel": {
+        "en": [
+          "buffer material"
+        ],
+        "ru": [
+          "буферный материал"
+        ]
+      },
+      "skos:definition": {
+        "en": "Any substance placed around a waste package in a repository to serve as an additional barrier to: stabilize the surrounding environment; restrict the access of groundwater to the waste package and reduce by sorption the rate of eventual radionuclide migration from the waste.",
+        "ru": "Буфер - любой материал, размещенный вокруг упаковки отходов в пункте захоронения (хранилище) для того, чтобы он служил в качестве барьера и ограничивал доступ подземных вод к упаковке отходов, а также снижал за счет сорбции и осаждения скорость конечной миграции радионуклидов из отходов."
+      },
+      "skos:note": {
+        "en": [
+          "The Gaomiaozi deposit is selected as the candidate supplier for China's buffer material of high level radioactive waste repository.",
+          "Thermal Conductivity of Korean Compacted Bentonite Buffer Materials for a Nuclear Waste Repository."
+        ],
+        "ru": [
+          "Бентонитовый буфер ограничивает транспортировку основных радионуклидов, высвобождаемых из поврежденных упаковок с РАО благодаря его сорбционным характеристикам.",
+          "Цель цементного буфера в ПГЗРО обеспечить сохранение высоких значений рн в ближней зоне в течение долгого времени."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:CallovoOxfordianClay",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "callovo-oxfordian clay"
+      },
+      "skos:altLabel": {
+        "en": [
+          "Callovo-Oxfordian argillaceous formation",
+          "Callovo-Oxfordian clay formation",
+          "Callovo-Oxfordian claystone",
+          "Callovo-Oxfordian shale",
+          "Callovo-Oxfordian",
+          "CallovoOxfordian",
+          "COX",
+          "clay",
+          "claystone",
+          "shale"
+        ]
+      },
+      "skos:definition": {
+        "en": "The Callovo-Oxfordian Clay also occurs in the Paris Basin (France) and it is a potential host formation to dispose of high-level radioactive waste in France."
+      },
+      "skos:note": {
+        "en": [
+          "An underground repository for disposal of radioactive waste is planned to be constructed in the sedimentary Callovo-Oxfordian argillaceous formation (COX) in France.",
+          "The Callovo-Oxfordian clay formation selected to host the French underground laboratory for nuclear waste disposal studies covers a mineralogical transition between illite/smectite mixed-layered minerals."
+        ]
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://ars.els-cdn.com/content/image/1-s2.0-B978008098259500024X-f05-04-03-9780080982595.jpg",
+          "@type": "dctype:StillImage",
+          "dcterms:format": "image/jpeg"
+        },
+        {
+          "@id": "https://www.researchgate.net/profile/Pierre_Delage/publication/257680761/figure/fig14/AS:268013274398725@1440910752072/The-Callovo-Oxfordian-claystone-layer-in-the-area-of-Bure-ANDRA-2005.png",
+          "@type": "dctype:StillImage",
+          "dcterms:format": "image/png"
+        }
+      ],
+      "skos:broader": "dict:ClayRock",
+      "skos:related": "dict:HostRock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Clay",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "clay",
+        "ru": "глина"
+      },
+      "skos:definition": {
+        "en": "Clay is a finely-grained natural rock or soil material that combines one or more clay minerals with possible traces of quartz (SiO2), metal oxides (Al2O3 , MgO etc.) and organic matter.",
+        "ru": "Гли́на — мелкозернистая осадочная горная порода, пылевидная в сухом состоянии, пластичная при увлажнении."
+      },
+      "skos:note": {
+        "en": [
+          "Although many naturally occurring deposits include both silts and clay, clays are distinguished from other fine-grained soils by differences in size and mineralogy.",
+          "Clay minerals typically form over long periods of time as a result of the gradual chemical weathering of rocks, usually silicate-bearing, by low concentrations of carbonic acid and other diluted solvents."
+        ],
+        "ru": [
+          "Основным источником глинистых пород служит полевой шпат, при распаде которого под воздействием атмосферных явлений образуются каолинит и другие гидраты алюминиевых силикатов.",
+          "Глина — это вторичный продукт земной коры, осадочная горная порода, образовавшаяся в результате разрушения скальных пород в процессе выветривания."
+        ]
+      },
+      "skos:broader": "dict:ClayRock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ClayRock",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "clay rock",
+        "ru": "глинистая горная порода"
+      },
+      "skos:altLabel": {
+        "en": [
+          "rock"
+        ],
+        "ru": [
+          "глинистая порода",
+          "порода"
+        ]
+      },
+      "skos:definition": {
+        "en": "Clay is a sedimentary rock made of tiny particles which come from the weathering of other rocks and minerals. The particles can be transported by rivers or ice and then deposited.",
+        "ru": "Мелкозернистая осадочная горная порода, пылевидная в сухом состоянии, пластичная при увлажнении."
+      },
+      "skos:note": {
+        "en": [
+          "Clay is a finely-grained natural rock or soil material that combines one or more clay minerals with possible traces of quartz (SiO2), metal oxides (Al2O3 , MgO etc.) and organic matter.",
+          "Clay minerals typically form over long periods of time as a result of the gradual chemical weathering of rocks, usually silicate-bearing, by low concentrations of carbonic acid and other diluted solvents."
+        ],
+        "ru": [
+          "Основным источником глинистых пород служит полевой шпат, при распаде которого под воздействием атмосферных явлений образуются каолинит и другие гидраты алюминиевых силикатов. Некоторые глины осадочного происхождения образуются в процессе местного накопления упомянутых минералов, но большинство из них представляют собой наносы водных потоков, выпавшие на дно озёр и морей.",
+          "Глина состоит из одного или нескольких минералов группы каолинита (происходит от названия местности Каолин в Китае), монтмориллонита или других слоистых алюмосиликатов (глинистые минералы), но может содержать и песчаные и карбонатные частицы."
+        ]
+      },
+      "skos:broader": "dict:Rock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Claystone",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "claystone",
+        "ru": "аргиллит"
+      },
+      "skos:altLabel": {
+        "en": [
+          "claystone",
+          "argillite",
+          "mudstone",
+          "mudrock",
+          "siltstone",
+          "slate",
+          "shale"
+        ],
+        "ru": [
+          "окаменелая глина",
+          "глинистый известняк",
+          "глинистый сланец",
+          "алеврито-глинистая порода",
+          "алевролитовая порода"
+        ]
+      },
+      "skos:definition": {
+        "en": "Claystone is a clastic sedimentary rock. It is composed of very fine particles (clay sized, less than 1/256 mm) which have become cemented into a hard rock.",
+        "ru": "Твёрдая, камнеподобная глинистая горная порода, образовавшаяся в результате уплотнения, дегидратации и цементации глин при диагенезе и эпигенезе в результате уплотнения, обезвоживания и цементации глин (с примесью частиц неглинистых минералов размером 0,01 мм)."
+      },
+      "skos:note": {
+        "en": [
+          "Claystone, hardened clay. Some geologists further restrict the term to a sedimentary rock that is composed primarily of clay-sized particles (less than 1/256 millimetre in diameter) and is not laminated or easily split into thin layers; such rocks that show cleavage roughly parallel to the bedding plane often are classed as clay shales.",
+          "The formation of clay is well understood, and can come from soil, volcanic ash, and glaciation. Ancient mudrocks are another source, because they weather and disintegrate easily. Feldspar, amphiboles, pyroxenes, and volcanic glass are the principle donors of clay minerals."
+        ],
+        "ru": [
+          "По минералогическому и химическому составу аргиллиты очень сходны с глинами, но отличаются от них большей твёрдостью и неспособностью размокать в воде. Сложены в основном глинистыми минералами гидрослюдистого монтмориллонитового и хлоритового типов с примесью частиц кварца, слюды, полевых шпатов.",
+          "Аргиллиты - типичные осадочные породы, характерные для геосинклинальных складчатых областей, а также глубоко погруженных осадочных толщ платформ."
+        ]
+      },
+      "skos:broader": "dict:ClayRock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ComputationalModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "computational model",
+        "ru": "расчётная модель"
+      },
+      "skos:altLabel": {
+        "ru": [
+          "расчетная модель"
+        ]
+      },
+      "skos:definition": {
+        "en": "A calculation tool that implements a mathematical model.",
+        "ru": "Расчетный инструмент реализующий математичкскую модель."
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Conductivity",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "conductivity",
+        "ru": "проводимость"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ConsequenceAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "consequence analysis",
+        "ru": "анализ последствий"
+      },
+      "skos:definition": {
+        "en": "A safety analysis that estimates potential individual or\ncollective radiation doses to humans on the basis of radionuclide releases and\ntransport from a nuclear facility (e.g. a waste storage facility or disposal site)\nto the human environment as defined by hypothetical release and transport scenarios.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ConceptualModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "conceptual model",
+        "ru": "концептуальная модель"
+      },
+      "skos:definition": {
+        "en": "A set of qualitative assumptions used to describe a system.",
+        "ru": "Набор качественных предоположений для описания некоторой системы."
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Colloid",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "colloid",
+        "ru": "коллоид"
+      },
+      "skos:definition": {
+        "en": "A state of subdivision of matter in which the particle size varies from that of true ‘molecular’ solutions to that of a coarse suspension. The diameters of the particles range between 1 and 1000 nm and the particles are dispersed in a liquid phase and do not sediment out.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Corrosion",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "corrosion",
+        "ru": "коррозия"
+      },
+      "skos:definition": {
+        "en": "Progressive surface dissolution of a material. A term generally used for metals.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "In radioactive waste management, it is also used for glasses and ceramic waste forms. Corrosion can be uniform over the surface of the material or non-uniform through enhanced corrosion in stressed areas at physical discontinuities. Selective localized formation of rounded cavities on the surface is called pitting corrosion."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:CrystallineRock",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "crystalline rock",
+        "ru": "кристаллическая горная порода"
+      },
+      "skos:altLabel": {
+        "en": [
+          "rock"
+        ],
+        "ru": [
+          "кристаллическая порода",
+          "порода"
+        ]
+      },
+      "skos:definition": {
+        "en": "Crystalline rock, any rock composed entirely of crystallized minerals without glassy matter.",
+        "ru": "Горная порода полностью состоящая из кристаллизованых минералов без стеклообразных включений"
+      },
+      "skos:note": {
+        "en": [
+          "Many factors influence the ability of a magma to crystallize, but the length of time during which cooling occurs is the controlling factor.",
+          "A rock consisting wholly of relatively large mineral grains, e.g., a plutonic rock, an igneous rock lacking glassy material, or a metamorphic rock."
+        ],
+        "ru": [
+          "Кристаллические породы различаются между собой также и по соотношению размеров кристаллитов в данной породе. Если в породе все кристаллиты одинакового размера, то такая структура называется равномерно зернистой; если же порода содержит кристаллиты различного размера, то структура называется разнозернистой. Различают еще так называемую порфировую структуру, отличающуюся вкраплением кристаллов больших размеров в общий фон мелкозернистой породы.",
+          "Кристаллические породы в большинстве случаев массивные, плотные, реже - пористые. Пористость хемогенных пород чаще всего вторичная, обусловленная наличием трещин или каналов выщелачивания."
+        ]
+      },
+      "skos:broader": "dict:Rock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Disposal",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "disposal",
+        "ru": "захоронение"
+      },
+      "skos:altLabel": {
+        "en": [
+          "repository",
+          "disposal facility"
+        ],
+        "ru": [
+          "могильник"
+        ]
+      },
+      "skos:definition": {
+        "en": "Emplacement of waste in an appropriate facility without the intention of retrieval.",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:DeterministicAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "deterministic analysis",
+        "ru": "детерминистический анализ"
+      },
+      "skos:definition": {
+        "en": "A simulation of the behaviour of a system utilizing one set of parameters, events and features.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:DeepGeologicalDisposal",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "deep geological disposal",
+        "ru": "подземное глубинное захоронение радиоактивных отходов"
+      },
+      "skos:altLabel": {
+        "en": [
+          "deep underground facility",
+          "deep geological repository",
+          "DGD",
+          "DGR",
+          "HLW disposal"
+        ],
+        "ru": [
+          "ПГЗРО",
+          "подземное глубинное захоронение РАО",
+          "глубинное захоронение РАО",
+          "захоронение РАО в глубокие геологические формации"
+        ]
+      },
+      "skos:definition": {
+        "en": "Nuclear waste repository excavated deep within a stable geologic environment (typically below 300 m or 1000 feet). It entails a combination of waste form, waste package, engineered seals and geology that is suited to provide a high level of long-term isolation and containment without future maintenance.",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:EBS",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "engineered barrier system",
+        "ru": "инженерные барьеры безопасности"
+      },
+      "skos:altLabel": {
+        "en": [
+          "EBS"
+        ],
+        "ru": [
+          "ИББ"
+        ]
+      },
+      "skos:definition": {
+        "en": "The designed, or engineered, components of a repository, including waste packages and other engineered barriers.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:EDZ",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "excavation damaged zone",
+        "ru": "зона техногенной трещиноватости"
+      },
+      "skos:altLabel": {
+        "en": [
+          "highly damaged zone",
+          "EDZ",
+          "HDZ"
+        ],
+        "ru": [
+          "зона техногенных нарушений",
+          "зона структурных нарушений"
+        ]
+      },
+      "skos:definition": {
+        "en": "The highly damaged zone (HDZ) is the part of the excavation that has suffered considerably from stress-induced damage such as spalling or construction-induced damage such as crushed rock near blast holes.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Zone",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:EngineeredBarrier",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "engineered barrier",
+        "ru": "инженерный барьер"
+      },
+      "skos:definition": {
+        "en": "A physical obstruction that prevents or delays the movement of radionuclides or other material between components in a system, for example a waste repository. In general, a barrier can be an engineered barrier which is constructed or a natural (or geological) barrier.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:EBS",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Experiment",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "experiment",
+        "ru": "эксперимент"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ExperimentFEBEX",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "experiment FEBEX",
+        "ru": "эксперимент FEBEX"
+      },
+      "skos:altLabel": {
+        "en": [
+          "FEBEX"
+        ]
+      },
+      "skos:definition": {
+        "en": "A typical High Level Waste (HLW) or Spent Fuel (SF) disposal concept includes steel canisters (1) containing waste (2) placed in horizontal drifts (3), surrounded by a clay barrier made up of blocks (4) manufactured from high-density compacted bentonite and situated deep within crystalline rock.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Experiment",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:FEP",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "features, events and processes",
+        "ru": "особенности, события и процессы"
+      },
+      "skos:altLabel": {
+        "en": [
+          "FEPs",
+          "FEP"
+        ],
+        "ru": [
+          "ОСП",
+          "Особенности, события, процессы",
+          "процессы, явления и факторы"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Fracture",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "fracture",
+        "ru": "разлом"
+      },
+      "skos:altLabel": {
+        "en": [
+          "fracture",
+          "fissure",
+          "fault",
+          "vein",
+          "crack",
+          "joint",
+          "dike",
+          "stretching",
+          "splitting",
+          "asperities",
+          "dyke",
+          "sill",
+          "stock",
+          "disjunctive dislocation",
+          "disjunctive fault",
+          "batholith",
+          "laccolith",
+          "lopolith",
+          "fracturing"
+        ],
+        "ru": [
+          "зона разлома",
+          "разрывное нарушение",
+          "дизъюнктивное нарушение",
+          "трещина разлома",
+          "фракция",
+          "разрыв сплошности",
+          "разлом",
+          "разрыв",
+          "трещина",
+          "дайка",
+          "шток",
+          "батолит",
+          "силл",
+          "лакколит",
+          "лополит"
+        ]
+      },
+      "skos:definition": {
+        "en": "A fracture is any separation in a geologic formation, such as a joint or a fault that divides the rock into two or more pieces. A fracture will sometimes form a deep fissure or crevice in the rock.",
+        "ru": "Нарушение сплошности горных пород, без смещения (трещина) или со смещением пород по поверхности разрыва. Разломы доказывают относительное движение земных масс."
+      },
+      "skos:note": {
+        "en": [
+          "Fractures are commonly caused by stress exceeding the rock strength, causing the rock to lose cohesion along its weakest plane.[1] Fractures can provide permeability for fluid movement, such as water or hydrocarbons. Highly fractured rocks can make good aquifers or hydrocarbon reservoirs, since they may possess both significant permeability and fracture porosity.",
+          "Fractures in rocks can be formed either due to compression or tension. Fractures due to compression include thrust faults. Fractures may also be a result from shear or tensile stress. Some of the primary mechanisms are discussed below."
+        ],
+        "ru": [
+          "Разломы доказывают относительное движение земных масс. Крупные разломы земной коры являются результатом сдвига тектонических плит на их стыках. В зонах активных разломов часто происходят землетрясения как результат выброса энергии во время быстрого скольжения вдоль линии разлома. Так как чаще всего разломы состоят не из единственной трещины или разрыва, а из структурной зоны однотипных тектонических деформаций, которые ассоциируются с плоскостью разлома, то такие зоны называют зонами разлома.",
+          "Расположение глубинных разломов определяется и картируется (картографируется) на поверхности Земли с использованием дешифрирования космических снимков, геофизических методов исследования — разнообразных видов сейсмического зондирования земной коры, магнитной съемки, гравиметрической съемки. Также часто применяются и геохимические методы — в частности, радоновая и гелиевая съемка."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:FracturedMedia",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "fractured media",
+        "ru": "трещиноватая среда"
+      },
+      "skos:altLabel": {
+        "en": [
+          "fractured rock"
+        ],
+        "ru": [
+          "трещиноватая геологическая среда",
+          "трещиноватая горная порода",
+          "трещинно-пористая среда"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:GeochemicalModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "geochemical model",
+        "ru": "геохимическая модель"
+      },
+      "skos:altLabel": {
+        "en": [
+          "geochemical activity model",
+          "numerical model of geochemical ?"
+        ],
+        "ru": [
+          "численная модель геохимических процессов"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:GeodynamicModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "geodynamic model",
+        "ru": "геодинамическая модель"
+      },
+      "skos:altLabel": {
+        "en": [
+          "tectonic model"
+        ],
+        "ru": [
+          "тектоническая модель",
+          "структурно-тектоническая модель",
+          "модель тектонических движений"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:GeologicalDisposalDesign",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "geological disposal design",
+        "ru": "концепция захоронения"
+      },
+      "skos:altLabel": {
+        "en": [
+          "repository design",
+          "repository concept",
+          "geological repository concept",
+          "geological repository design"
+        ],
+        "ru": [
+          "концепция ПГЗРО",
+          "компоновка захоронения"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Glass",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "glass",
+        "ru": "стекло"
+      },
+      "skos:definition": {
+        "en": "An amorphous material with a molecule distribution similar to that of a liquid but with a viscosity so great that its physical properties are those of a solid.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "Glasses used in the solidification of liquid high level waste are generally based on a silicon–oxygen network.",
+          "Additional network formers such as aluminium, or modifiers such as boron, lead to aluminosilicate or borosilicate glass."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Matrix",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Gradient",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "gradient",
+        "ru": "градиент"
+      },
+      "skos:definition": {
+        "en": "A multi-variable generalization of the derivative.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:GroundwaterFlowModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "groundwater flow model",
+        "ru": "модель фильтрации"
+      },
+      "skos:altLabel": {
+        "en": [
+          "groundwater flow problem",
+          "groundwater flow simulation"
+        ],
+        "ru": [
+          "задача фильтрации",
+          "моделирование движения подземных вод",
+          "фильтрационная модель"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:GroundwaterFlowAndTransportModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "groundwater flow and transport model",
+        "ru": "модель фильтрации и миграции"
+      },
+      "skos:altLabel": {
+        "en": [
+          "groundwater flow and transport problem",
+          "groundwater flow and transport simulation"
+        ],
+        "ru": [
+          "задача фильтрации и миграции",
+          "моделирование движения подземных вод",
+          "фильтрационно-миграционная модель"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HostRock",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "host rock",
+        "ru": "вмещающая горная порода"
+      },
+      "skos:altLabel": {
+        "ru": [
+          "вмещающая порода"
+        ]
+      },
+      "skos:definition": {
+        "en": "A geological formation in which a repository is located.",
+        "ru": "Геологическая формация в которой распологается объект подземной изоляции РАО"
+      },
+      "skos:note": {
+        "en": [
+          "The geological formation (host rock), in which the waste is placed, constitutes an important isolation barrier in a repository – NGB.",
+          "Geological formations selected for siting nuclear waste repositories must contribute to the isolation of the waste and limit radionuclide release to minimise potential adverse effects on the environment. Factors considered when selecting suitable formations include:• stability: the site is expected to possess a stable geology with overall predictability of site evolution;• acceptable hydrogeology: limited contact between waste and groundwater is preferred to minimise the mobilisation and transport of radionuclides;• suitable geochemistry: characteristics minimising the potential for radionuclide migration, for example reducing conditions are preferred (see Table 3.2);• low seismicity: the potential of earthquakes to affect the site must be considered."
+        ],
+        "ru": [
+          "Благоприятные условия в массиве вмещающих пород обеспечат безопасную локализацию РАО в ближней зоне объекта даже с учетом потенциально возможных аварийных ситуаций.",
+          "С учетом характеристик вмещающих пород и нисходящего характера фильтрации подземных вод, радионуклиды заведомо не выйдут в сферу жизнедеятельности человека в течение всего срока потенциальной экологической опасности."
+        ]
+      },
+      "skos:broader": "dict:Rock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HumanIntrusion",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "human intrusion",
+        "ru": "вторжение человека"
+      },
+      "skos:altLabel": {
+        "en": [
+          "human intrusions",
+          "human disturbance"
+        ],
+        "ru": [
+          "несанкционированный доступ",
+          "неавторизованный доступ"
+        ]
+      },
+      "skos:definition": {
+        "en": "Potential future human actions that could disturb areas occupied by radioactive waste disposal facilities.",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HydraulicConductivity",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "hydraulic conductivity",
+        "ru": "гидравлическая проводимость"
+      },
+      "skos:altLabel": {
+        "en": [
+          "Kp"
+        ],
+        "ru": [
+          "коэффициент проницаемости"
+        ]
+      },
+      "skos:definition": {
+        "en": "Ratio of flow rate n to driving force dh/dl (the change of hydraulic head with distance) for viscous flow of a fluid in a porous medium. This is the so-called constant of proportionality K in Darcy’s law: n = –K dh/dl and depends on both the porous medium and the fluid properties.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HydraulicGradient",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "hydraulic gradient",
+        "ru": "гидравлический градиент"
+      },
+      "skos:altLabel": {
+        "en": [
+          "pressure gradient",
+          "potential gradient",
+          "hydraulic drop",
+          "hydraulic head",
+          "gradient"
+        ],
+        "ru": [
+          "гидравлический напор",
+          "перепад давления",
+          "градиент давления",
+          "градиент напора",
+          "градиент потенциала",
+          "градиент"
+        ]
+      },
+      "skos:definition": {
+        "en": "The change in total hydraulic head per unit distance of flow in a given direction.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Gradient",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HydraulicPermeability",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "hydraulic permeability",
+        "ru": "гидравлическая проницаемость"
+      },
+      "skos:altLabel": {
+        "en": [
+          "permeability coefficient"
+        ],
+        "ru": [
+          "коэффициент фильтрации"
+        ]
+      },
+      "skos:definition": {
+        "en": "The ability of a porous medium to transmit fluid. Permeability k is a function of the medium only and has dimensions L2. The permeability k and hydraulic conductivity K of a porous medium are related in the following way: K = krg/m where the fluid density r and the dynamic viscosity m are functions of the fluid alone and g is the acceleration due to gravity.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HydraulicTransmissivity",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "hydraulic transmissivity",
+        "ru": "гидравлическая прозрачность"
+      },
+      "skos:altLabel": {
+        "en": [
+          "transmission ratio",
+          "transmission coefficient",
+          "transparency coefficient"
+        ],
+        "ru": [
+          "коэффициент прозрачности",
+          "коэффициент пропускания"
+        ]
+      },
+      "skos:definition": {
+        "en": "The rate at which water is transmitted through a unit width of a water conducting feature (e.g. an aquifer) under a unit hydraulic gradient.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Conductivity",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:HydrostaticPressure",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "hydrostatic pressure",
+        "ru": "гидростатическое давление"
+      },
+      "skos:altLabel": {
+        "en": [
+          "head of water",
+          "hydrostatic head",
+          "potential pressure",
+          "hydrostatic load"
+        ],
+        "ru": [
+          "гидростатический напор",
+          "гидравлическое давление"
+        ]
+      },
+      "skos:definition": {
+        "en": "The static pressure exerted by water at some point in a body of water such as a lake or in a saturated medium such as an aquifer. The SI units are: kg/m2.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:IntrusionBarrier",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "intrusion barrier",
+        "ru": "барьер, предупреждающий вторжение"
+      },
+      "skos:definition": {
+        "en": "The components of a repository designed to prevent inadvertent access to the waste by humans, animals and plants.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:EBS",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:KnowledgeBase",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "knowledge base",
+        "ru": "база знаний"
+      },
+      "skos:altLabel": {
+        "en": [
+          "knowledge database"
+        ],
+        "ru": [
+          "база данных знаний"
+        ]
+      },
+      "skos:definition": {
+        "en": "A knowledge base (KB) is a technology used to store complex structured and unstructured information used by a computer system.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "The initial use of the term was in connection with expert systems which were the first knowledge-based systems."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:KnowledgeManagement",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "knowledge management",
+        "ru": "управление знаниями"
+      },
+      "skos:definition": {
+        "en": "Knowledge management (KM) is the process of creating, sharing, using and managing the knowledge and information of an organization.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "It refers to a multidisciplinary approach to achieving organizational objectives by making the best use of knowledge."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:MathematicalModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "mathematical model",
+        "ru": "математическая модель"
+      },
+      "skos:definition": {
+        "en": "A set of mathematical equations designed to represent a conceptual model.",
+        "ru": "Набор математических уравнений описывающих концептуальную модель."
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Matrix",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "matrix",
+        "ru": "матрица"
+      },
+      "skos:definition": {
+        "en": "A non-radioactive material used to immobilize waste. Examples of matrices are bitumen, cement, various polymers and glass.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Migration",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "migration",
+        "ru": "миграция"
+      },
+      "skos:altLabel": {
+        "en": [
+          "radionuclide migration",
+          "radionuclide transport",
+          "transport"
+        ],
+        "ru": [
+          "миграция радионуклидов",
+          "транспорт радионуклидов",
+          "транспорт"
+        ]
+      },
+      "skos:definition": {
+        "en": "The movement (migration) of radionuclides in the environment, for example radionuclide transport by groundwater. This could include processes such as advection, diffusion, sorption and uptake.",
+        "ru": "Почва является основным источником снабжения в биосферу природных радионуклидов. Под миграцией радионуклидов в почве следует понимать совокупность процессов, ведущих к их перемещениям в почве и обусловливают перераспределение по глубине и в горизонтальном направлении."
+      },
+      "skos:note": {
+        "en": [
+          "This usage does not include intentional transport of radioactive materials by humans (transport of radioactive wastes in casks, etc). See also migration."
+        ],
+        "ru": [
+          "Радиоэкологическая модель транспорта радионуклидов йода и цезия по пищевым цепочкам после радиационных аварий с выбросом в атмосферу для исследований закономерностей формирования доз внутреннего облучения населения."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:MontTerriURL",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "Mont Terri underground research laboratory",
+        "ru": "Mont Terri исследовательская подземная лаборатория"
+      },
+      "skos:altLabel": {
+        "en": [
+          "laboratory",
+          "url",
+          "mont terri url",
+          "mont terri"
+        ],
+        "ru": [
+          "лаборатория",
+          "ПИЛ",
+          "лаборатория Mont Terri",
+          "Mont Terri ПИЛ"
+        ]
+      },
+      "skos:definition": {
+        "en": "The Mont Terri rock laboratory is situated to the north of St-Ursanne in the canton of Jura, around 300 m underground. It is accessed via the safety gallery of the Mont Terri motorway tunnel.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:URL",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Model",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "model",
+        "ru": "модель"
+      },
+      "skos:definition": {
+        "en": "A representation of a system and the ways in which phenomena occur within that system, used to simulate or assess the behaviour of the system for a defined purpose.",
+        "ru": "Представление системы, а также от как некоторые явления возникают в этой системе, используется для моделирования или оценки поведения этой системы для некоторой определенной задачи"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:MultipleBarrierSystem",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "multiple barrier system",
+        "ru": "многобарьерная система"
+      },
+      "skos:definition": {
+        "en": "Two or more natural or engineered barriers used to isolate radioactive waste in, and prevent radionuclide migration from, a repository.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:EBS",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:NuclearLegacySite",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "nuclear legacy site",
+        "ru": "объект ядерного наследия"
+      },
+      "skos:altLabel": {
+        "en": [
+          "nuclear legacy facility",
+          "radioactive legacy site",
+          "nuclear legacy"
+        ],
+        "ru": "ОЯН"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:NuclearRadiationHazardousFacilities",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "nuclear and radiation hazardous facilities",
+        "ru": "ядерно-и радиационно опасные объекты"
+      },
+      "skos:altLabel": {
+        "en": "nuclear radiation hazardous facilities",
+        "ru": "ЯРОО"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:OpalinusClay",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "opalinus clay"
+      },
+      "skos:altLabel": {
+        "en": [
+          "opalinus",
+          "clay"
+        ]
+      },
+      "skos:definition": {
+        "en": "The Opalinus Clay occurs extensively in Northern Switzerland and neighbouring countries. The layer package is around 110 metres thick and has a uniform structure. It originates from the Jurassic period some 173 million years ago. At that time, Northern Switzerland was covered by a shallow sea. Fine clay muds were deposited on the seabed and were then solidified to form the Opalinus Clay. The name comes from the ammonite “Leioceras opalinum” that is often found as fossils in the clay."
+      },
+      "skos:note": {
+        "en": [
+          "Opalinus Clay is being investigated as a potential host rock for the storage of nuclear waste due to its very low hydraulic conductivity, self-sealing of open cracks and fissures, and excellent retention of radionuclides.",
+          "The Opalinus Clay is suitable as a host rock for a deep geological repository for radioactive waste in Switzerland."
+        ]
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://www.nagra.ch/data/images/database/$default/bilder_normal/normal/offene_stollenwand.jpg",
+          "@type": "dctype:StillImage",
+          "dcterms:format": "image/jpeg"
+        },
+        {
+          "@id": "https://www.mont-terri.ch/content/mont-terri-internet/en/experiments/caracterisation-of-the-opalinus-clay/_jcr_content/contentPar/textimage/image.transform.1484742123542/image_588_368/image.terri41.jpg",
+          "@type": "dctype:StillImage",
+          "dcterms:format": "image/jpeg"
+        },
+        {
+          "@id": "https://youtu.be/AW0PA3gji1Q",
+          "@type": "dctype:MovingImage",
+          "dcterms:format": "video/x-youtube"
+        }
+      ],
+      "skos:broader": "dict:ClayRock",
+      "skos:related": "dict:HostRock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:PathwaysModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "pathways model",
+        "ru": "модель распространения"
+      },
+      "skos:definition": {
+        "en": "A mathematical representation used to simulate the transport of radionuclides from a source to a receptor.",
+        "ru": "Математическое представление используемое для моделирования переноса радионуклидов от источника до реципиента."
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:PerformanceAssessment",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "performance assessment",
+        "ru": "оценка эффективности"
+      },
+      "skos:altLabel": {
+        "en": "performance analysis",
+        "ru": "анализ эффективности"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Assessment",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ProbabilisticAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "probabilistic analysis",
+        "ru": "вероятностный анализ"
+      },
+      "skos:definition": {
+        "en": "A simulation of the behaviour of a system defined by parameters, events and features whose values are represented by a statistical distribution. The analysis gives a corresponding distribution of results.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Porosity",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "porosity",
+        "ru": "пористость"
+      },
+      "skos:definition": {
+        "en": "The ratio of the aggregate volume of interstices in rock, soil or other porous media to its total volume.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWaste",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "radioactive waste",
+        "ru": "радиоактивные отходы"
+      },
+      "skos:altLabel": {
+        "en": [
+          "waste",
+          "RW",
+          "HLW",
+          "HLW-LL",
+          "HLW-SL",
+          "ILW",
+          "LILW",
+          "LILW-SL",
+          "LILW-LL",
+          "MLW",
+          "MLW-LL",
+          "MLW-SL",
+          "LLW",
+          "LLW-LL",
+          "LLW-SL",
+          "VLLW"
+        ],
+        "ru": [
+          "отходы",
+          "РАО",
+          "ВАО",
+          "САО",
+          "ЖРО",
+          "ЖРАО"
+        ]
+      },
+      "skos:definition": {
+        "en": "Material in gaseous, liquid or solid form for which no further use is foreseen.",
+        "ru": "Это ядерные материалы и радиоактивные вещества, дальнейшее использование которых не предусматривается. По российскому законодательству, ввоз радиоактивных отходов в страну запрещен."
+      },
+      "skos:note": {
+        "en": [
+          "For legal and regulatory purposes, waste that contains or is contaminated with radionuclides at concentrations or activities greater than clearance levels as established by the regulatory body. It should be recognized that this definition is purely for regulatory purposes and that material with activity concentrations equal to or less than clearance levels is radioactive from a physical viewpoint — although the associated radiological hazards are considered negligible.",
+          "Radioactive waste typically comprises a number of radionuclides: unstable configurations of elements that decay, emitting ionizing radiation which can be harmful to humans and the environment. These isotopes emit different types and levels of radiation, which last for different periods of time."
+        ],
+        "ru": [
+          "Радиоактивные отходы образуются в различных формах с весьма разными физическими и химическими характеристиками, такими, как концентрации и периоды полураспада составляющих их радионуклидов. Эти отходы могут образовываться: в газообразной форме, как, например, вентиляционные выбросы установок, где обрабатываются радиоактивные материалы; в жидкой форме, начиная от растворов сцинтилляционных счётчиков из исследовательских установок до жидких высокоактивных отходов, образующихся при переработке отработавшего топлива; в твёрдой форме (загрязнённые расходные материалы, стеклянная посуда из больниц, медицинских исследовательских установок и радиофармацевтических лабораторий, остеклованные отходы от переработки топлива или отработавшего топлива от АЭС, когда оно считается отходами).",
+          "Особым видом РАО являются жидкие технологические радиоактивные отходы (используемые сокращения наименования: ЖРО и ЖРАО) — промышленные отходы, содержащие радиоактивные нуклиды техногенного происхождения, то есть образованные в результате деятельности предприятий оборонного и иного вида атомной промышленности, предприятий ядерного топливного цикла, атомных электростанций, при эксплуатации судов атомного флота, при производстве и использовании радиоизотопной продукции, а также при радиационных авариях."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWasteImmobilization",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "immobilization",
+        "ru": "иммобилизация"
+      },
+      "skos:altLabel": {
+        "en": [
+          "neutralisation",
+          "neutralization"
+        ],
+        "ru": [
+          "нейтрализация",
+          "связывание"
+        ]
+      },
+      "skos:definition": {
+        "en": "Conversion of waste into a waste form by solidification, embedding or encapsulation. The aim is to reduce the potential for migration or dispersion of radionuclides during handling, transport, storage and/or disposal. See also conditioning.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:related": "dict:RadioactiveWaste",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWastePackage",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "radioactive waste package",
+        "ru": "упаковка радиоактивных отходов"
+      },
+      "skos:altLabel": {
+        "en": [
+          "package",
+          "waste package",
+          "waste container",
+          "radioactive waste container"
+        ],
+        "ru": [
+          "упаковка",
+          "упаковка отходов",
+          "упаковочный комплект",
+          "упаковочный контейнер",
+          "контейнер РАО"
+        ]
+      },
+      "skos:definition": {
+        "en": "The product of conditioning that includes the waste form and any container(s) and internal barriers (e.g. absorbing materials and liners), pre-pared in accordance with the requirements for handling, transport, storage and/or disposal.",
+        "ru": "Упаковочный комплект (контейнер) с помещенными в него РАО, подготовленный для транспортирования, и (или) хранения, и (или) захоронения."
+      },
+      "skos:note": {
+        "en": [
+          "The main objective of radioactive waste management is to protect people and their environment from the potential harmful effects of radioactive waste and to minimize the burden for future generations. Safe disposal of conditioned radioactive waste is considered the final step of waste management. Waste acceptance requirements, consistent with a disposal concept, should be defined either by national authorities or repository operators with the aim of meeting the safety goal of radioactive waste disposal.",
+          "Radioactive waste needs to be safely managed in a regulated manner, compatible with internationally agreed principles and standards [1–10]. Implementing a proper radioactive waste management system needs organizational and administrative arrangements that define competencies, responsibilities and activities of the institutions involved [3, 4, 7]. The conditioning and disposal method chosen for the waste should be commensurate with the hazard and longevity of the radionuclides. Near surface disposal and disposal in deep geological formations are options already used by many countries addressing radioactive waste [7, 28, 33–38]. Although the waste package is an integral part of the overall engineered barrier system, it is considered separately because of its direct bearing on the repository safety case and the necessity to accommodate other waste disposal issues, including quality assurance, record maintenance, and any waste retrieval requirements."
+        ],
+        "ru": [
+          "Упаковка РАО должна ограничивать выход ионизирующего излучения и радиоактивных веществ за пределы упаковки РАО таким образом, чтобы комбинация защитных и изолирующих свойств упаковки РАО и иных барьеров безопасности ПЗРО обеспечивала выполнение установленных санитарными правилами и нормативами радиационной безопасности требований по ограничению радиационного и иного воздействия на работников (персонал), население и окружающую среду в период потенциальной опасности размещенных РАО.",
+          "Барьер для обеспечения безопасности населения и окружающей среды - упаковка радиоактивных отходов, инженерная конструкция пункта хранения радиоактивных отходов и их отдельные части или элемент природного геологического образования, препятствующие распространению радионуклидов и (или) ионизирующего излучения в окружающую среду."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWasteContainer",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "container",
+        "ru": "контейнер"
+      },
+      "skos:altLabel": {
+        "en": [
+          "RW container",
+          "radioactive waste container"
+        ],
+        "ru": [
+          "контейнер РАО",
+          "контейнер с радиоактивными отходами"
+        ]
+      },
+      "skos:definition": {
+        "en": "The vessel into which the waste form is placed for handling, trans-\nport, storage and/or eventual disposal; also the outer barrier protecting the waste from external intrusions.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "The waste container is a component of the waste package. For example, molten HLW glass would be poured into a specially designed container (canister) where it would cool and solidify."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:RadioactiveWastePackage",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWasteCanister",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "canister",
+        "ru": "контейнер"
+      },
+      "skos:altLabel": {
+        "en": [
+          "radioactive waste canister",
+          "RW canister"
+        ],
+        "ru": [
+          "контейнер РАО",
+          "контейнер c радиоактивными отходами"
+        ]
+      },
+      "skos:definition": {
+        "en": "The vessel into which the waste form is placed for handling, transport, storage and/or eventual disposal; also the outer barrier protecting the waste from external intrusions. The waste container is a component of the waste package.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "For example, molten HLW glass would be poured into a specially designed container (canister) where it would cool and solidify."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:RadioactiveWastePackage",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWasteSuperContainer",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "supercontainer",
+        "ru": "суперконтейнер"
+      },
+      "skos:altLabel": {
+        "en": [
+          "radioactive waste supercontainer",
+          "RW supercontainer"
+        ],
+        "ru": [
+          "суперконтейнер с радиоактивными отходами",
+          "суперконтейнер РАО"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "ONDRAF-NIRAS has recently selected a Supercontainer with a Portland Cement (PC) buffer as the preferred new reference design for disposal of HLW and spent fuel."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:RadioactiveWastePackage",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadioactiveWasteCask",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "cask",
+        "ru": "чехол"
+      },
+      "skos:definition": {
+        "en": "A vessel for the transport and/or storage of spent fuel and other radioactive materials. The cask serves several functions. It provides chemical, mechanical, thermal and radiological protection, and dissipates decay heat during handling, transport and storage.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:RadioactiveWastePackage",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RadionuclideTransportModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "radionuclide transport model",
+        "ru": "модель миграции радионуклидов"
+      },
+      "skos:altLabel": {
+        "en": [
+          "contaminant transport model",
+          "transport model",
+          "transport simulation"
+        ],
+        "ru": [
+          "модель переноса радионуклидов",
+          "модель переноса загрязнителя",
+          "модель миграции",
+          "миграционная модель"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RDDProgram",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "RD&D program",
+        "ru": "программа НИР"
+      },
+      "skos:altLabel": {
+        "en": [
+          "research, development and demonstration program",
+          "RD&D programme"
+        ],
+        "ru": [
+          "программа исследований",
+          "программа НИОКР"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Requirement",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "requirement",
+        "ru": "требование"
+      },
+      "skos:definition": {
+        "en": "A condition defined as necessary to be met by a product, material or process.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:RiskAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "risk analysis",
+        "ru": "анализ рисков"
+      },
+      "skos:definition": {
+        "en": "An analysis of possible events and their probabilities of occurrence together with their potential consequences.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Rock",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "rock",
+        "ru": "горная порода"
+      },
+      "skos:altLabel": {
+        "en": [
+          "rock"
+        ],
+        "ru": [
+          "горная порода",
+          "порода"
+        ]
+      },
+      "skos:definition": {
+        "en": "In geology, any mass of mineral matter, whether consolidated or not, which forms part of the earth’s crust. Rocks may consist of only one mineral species, in which case they are called monomineralic but they usually consist of several mineral species.",
+        "ru": "Любая масса или агрегат одного или нескольких минеральных видов или органического вещества, являющихся продуктами природных процессов. Вещество может быть твёрдым, консолидированным или мягким, рыхлым."
+      },
+      "skos:note": {
+        "en": [
+          "A rock is any naturally occurring solid mass or aggregate of minerals or mineraloid matter. It is categorized by the minerals included, its chemical composition and the way in which it is formed. Rocks are usually grouped into three main groups: igneous rocks, metamorphic rocks and sedimentary rocks. Rocks form the Earth's outer solid layer, the crust.",
+          "Rocks are classified according to characteristics such as mineral and chemical composition, permeability, texture of the constituent particles, and particle size. These physical properties are the result of the processes that formed the rocks.[5] Over the course of time, rocks can transform from one type into another, as described by a geological model called the rock cycle. This transformation produces three general classes of rock: igneous, sedimentary, and metamorphic."
+        ],
+        "ru": [
+          "Плотные или рыхлые агрегаты, слагающие земную кору, состоящие из однородных или различных минералов, либо минералов и обломков других горных пород[2]. Состав, строение и условия залегания пород находятся в причинной зависимости от формирующих их геологических процессов, происходящих внутри земной коры или на её поверхности. С геохимической точки зрения горные породы — естественные агрегаты минералов, состоящих преимущественно из петрогенных элементов (главных химических элементов породообразующих минералов).",
+          "Магматические и метаморфические горные породы слагают около 90 % объёма земной коры, однако на современной поверхности материков области их распространения сравнительно невелики. Остальные 10 % приходятся на долю осадочных пород, занимающие 75 % площади земной поверхности."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyAssessment",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety assessment",
+        "ru": "оценка безопасности"
+      },
+      "skos:altLabel": {
+        "en": "assessment",
+        "ru": "оценка"
+      },
+      "skos:definition": {
+        "en": "An analysis to evaluate the performance of an overall system and its impact, where the performance measure is radiological impact or some other global measure of impact on safety. See also assessment, performance.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "An analysis to evaluate the performance of an overall system\nand its impact, where the performance measure is radiological impact or some other global measure of impact on safety."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Assessment",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:StressStrainBehavior",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "stress-strain behavior",
+        "ru": "напряженно-деформированное состояние"
+      },
+      "skos:altLabel": {
+        "en": "stress-strain behaviour",
+        "ru": "НДС"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyCase",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety case",
+        "ru": "обоснование безопасности"
+      },
+      "skos:definition": {
+        "en": "An integrated collection of arguments and evidence to demonstrate the safety of a facility.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "This will normally include a safety assessment, but could also typically include information (including supporting evidence and reasoning) on the robustness and reliability of the safety assessment and the assumptions made therein."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyReport",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety report",
+        "ru": "отчет обоснования безопасности"
+      },
+      "skos:definition": {
+        "en": "A document required from the operating organization by the regulatory body containing information concerning a nuclear facility (e.g. a repository), the site characteristics, design, operational procedures, etc., together with a safety analysis and details of any provisions needed to restrict risk to personnel and the public.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyStandards",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety standards",
+        "ru": "нормы безопасности"
+      },
+      "skos:altLabel": {
+        "ru": "стандарты безопасности"
+      },
+      "skos:definition": {
+        "en": "Safety Standards issued since 1997 in the IAEA Safety Standards Series are designated as Safety Fundamentals, Safety Requirements or Safety Guides. Some Safety Standards issued prior to 1997 in the IAEA Safety Series were designated Safety Standards, Codes, Regulations or Rules.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyIndicator",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety indicator",
+        "ru": "показатель безопасности"
+      },
+      "skos:definition": {
+        "en": "A quantity used in assessments as a measure of the radiological impact of a source or practice, or of the performance of protection and safety provisions, other than a prediction of dose or risk.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyCulture",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety culture",
+        "ru": "культура безопасности"
+      },
+      "skos:definition": {
+        "en": "The assembly of characteristics and attitudes in organizations and individuals which establishes that, as an overriding priority, protection and safety issues receive the attention warranted by their significance.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SafetyAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "safety analysis",
+        "ru": "анализ безопасности"
+      },
+      "skos:definition": {
+        "en": "An evaluation of the potential hazards associated with the implementation of a proposed activity.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SaturatedZone",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "saturated zone",
+        "ru": "зона насыщения"
+      },
+      "skos:altLabel": {
+        "en": [
+          "saturation region",
+          "saturation zone"
+        ],
+        "ru": [
+          "зона насыщения влагой"
+        ]
+      },
+      "skos:definition": {
+        "en": "A subsurface zone in which all the interstices are filled with water. This zone is separated from the unsaturated zone, i.e. the zone of aeration, by the water table.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Zone",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SensitivityAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "sensitivity analysis",
+        "ru": "анализ чувствительности"
+      },
+      "skos:definition": {
+        "en": "The assembly of characteristics and attitudes in organizations and individuals which establishes that, as an overriding priority, protection and safety issues receive the attention warranted by their significance.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SeismicAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "seismic analysis",
+        "ru": "сейсмический анализ"
+      },
+      "skos:definition": {
+        "en": "Seismic analysis is a subset of structural analysis and is the calculation of the response of a building (or nonbuilding) structure to earthquakes. It is part of the process of structural design, earthquake engineering or structural assessment and retrofit (see structural engineering) in regions where earthquakes are prevalent.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Site",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "site",
+        "ru": "площадка"
+      },
+      "skos:definition": {
+        "en": "The area containing, or under investigation for its suitability for, a nuclear facility (e.g. a repository). It is defined by a boundary and is under effective control of the operating organization.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SiteCharacterization",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "site characterization",
+        "ru": "характеризизация площадки"
+      },
+      "skos:definition": {
+        "en": "Detailed surface and subsurface investigations and activities\nat candidate disposal sites to obtain information to determine the suitability of the site for a repository and to evaluate the long term performance of a repository at the site.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:related": "dict:Site",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SiteConfirmation",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "site confirmation",
+        "ru": "выбор площадки"
+      },
+      "skos:definition": {
+        "en": "The final stage of the siting process for a repository. Site confirmation is based on detailed investigations on the preferred site which provide site specific information needed for safety assessment. This stage includes the finalization of the repository design and the preparation and submission of a licence application to the regulatory body.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:related": "dict:Site",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SiteSelection",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "site selection",
+        "ru": "выбор площадки"
+      },
+      "skos:altLabel": {
+        "en": [
+          "site selecting",
+          "siting"
+        ],
+        "ru": [
+          "выбор участка"
+        ]
+      },
+      "skos:definition": {
+        "en": "The process of selecting a suitable disposal site.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:related": "dict:Site",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Smectite",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "smectite",
+        "ru": "смектит"
+      },
+      "skos:altLabel": {
+        "en": [
+          "aliettite",
+          "hectorite",
+          "montmorillonite",
+          "mudrock",
+          "nontronite",
+          "saliotite",
+          "saponite",
+          "sauconite",
+          "Fuller's earth",
+          "bleaching clay",
+          "Florida clay"
+        ],
+        "ru": [
+          "фуллерова земля",
+          "сукновальная глина",
+          "валяльная глина",
+          "алеврито-глинистая порода",
+          "алевролитовая порода",
+          "алиэттит",
+          "бейделлит",
+          "ферросапонит",
+          "гекторит",
+          "монтмориллонит",
+          "нонтронит",
+          "пимелит",
+          "салиотит",
+          "сапонит",
+          "сауконит",
+          "стевенсит",
+          "свайнфордит",
+          "волконскоит",
+          "яхонтовит",
+          "цинксилит"
+        ]
+      },
+      "skos:definition": {
+        "en": "Smectite is the name used for a group of phyllosilicate mineral species, the most important of which are montmorillonite, beidellite, nontronite, saponite and hectorite.",
+        "ru": "Смектиты - общее название для ди- и триоктаэдрических слоистых м-лов с разбухающей решеткой (гр. монтмориллонита, нонтронита и сапонита), к которым ранее применяли назв. «монтмориллониты», «монтмориллонит-сапонит», «монтмориллоноиды»."
+      },
+      "skos:note": {
+        "en": [
+          "These and several other less common species are differentiated by variations in chemical composition involving substitutions of Al for Si in tetrahedral cation sites and Al, Fe, Mg and Li in octahedral cation sites.",
+          "Smectite is defined in clay mineralogy as a  2:1 clay - consisting of an octahedral sheet sandwiched between two tetrahedral sheets. Smectites may swell by the uptake of water in the clay interlayer spacing."
+        ],
+        "ru": [
+          "Широко распространены в почвах, различных осадочных, вулканогенно-осадочных и гидротермальных п., среди продуктов изменения магматич. п.",
+          "Породообразующие м-лы отложений осадочного чехла океанов (пелагических глин, карбонатных и кремнистых отл., ЖМК, рудоносных осадков), а также продукты вторичных преобразований г. п. океанического дна."
+        ]
+      },
+      "skos:broader": "dict:ClayRock",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Seal",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "seal",
+        "ru": "герметизация"
+      },
+      "skos:altLabel": {
+        "en": [
+          "sealing"
+        ],
+        "ru": [
+          "изоляция"
+        ]
+      },
+      "skos:definition": {
+        "en": "Engineered barriers placed in passages within and leading to a repository to isolate the waste and to prevent seepage leakage of water into or radionuclide migration from the repository area.",
+        "ru": "Инженерные барьеры размещенные во внутренних выработках, а также в выработках ведущих к репозиторию для изоляции РАО и предотвращения просачивания воды в хранилище или миграции радионуклидов из объема хранилища."
+      },
+      "skos:note": {
+        "en": [
+          "Sealing is performed as part of repository closure."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:EBS",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Sorption",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "sorption",
+        "ru": "сорбция"
+      },
+      "skos:altLabel": {
+        "en": [
+          "adsorption",
+          "absorption",
+          "desorption"
+        ],
+        "ru": [
+          "адсорбция",
+          "абсорбция",
+          "десорбция"
+        ]
+      },
+      "skos:definition": {
+        "en": "The interaction of an atom, molecule or particle with the surface of a solid. A general term including absorption (sorption taking place largely within the pores of a solid) and adsorption (surface sorption with a non-porous solid).",
+        "ru": "Поглощение твёрдым телом либо жидкостью различных веществ из окружающей среды. Поглощаемое вещество, находящееся в среде, называют сорбатом (сорбтивом), поглощающее твёрдое тело или жидкость — сорбентом."
+      },
+      "skos:note": {
+        "en": [
+          "The processes involved may also be divided into chemisorption (chemical bonding\nwith the substrate) and physisorption (physical attraction, for example by weak electrostatic forces)."
+        ],
+        "ru": [
+          "По характеру поглощения сорбата сорбционные явления делятся на два типа: адсорбцию — концентрирование сорбата на поверхности раздела фаз или его поглощение поверхностным слоем сорбента и абсорбцию — объёмное поглощение, при котором сорбат распределяется по всему объёму сорбента.",
+          "В свою очередь, различают два типа адсорбции — физическую адсорбцию, при которой повышение концентрации сорбата на поверхности раздела фаз обусловлено неспецифическими (то есть не зависящими от природы вещества) силами Ван-дер-Ваальса и химическую адсорбцию (хемосорбцию), обусловленную протеканием химических реакций сорбата с веществом поверхности сорбента. Физическая адсорбция слабоспецифична, обратима и её тепловой эффект невелик (единицы к Дж/моль). Хемосорбция избирательна, обычно необратима и её теплота составляет от десятков до сотен (хемосорбция кислорода на металлах) к Дж/моль."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:SpentFuelPackage",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "spent fuel package",
+        "ru": "упаковка с отработанным ядерным топливом"
+      },
+      "skos:altLabel": {
+        "en": [
+          "fuel package",
+          "package"
+        ],
+        "ru": [
+          "упаковка ОЯТ",
+          "упаковка"
+        ]
+      },
+      "skos:definition": {
+        "en": "Conditioned spent fuel in a form suitable for transport, storage and/or disposal.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:RadioactiveWastePackage",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:THMCB",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "THMCB coupling",
+        "ru": "совместная THMCB модель"
+      },
+      "skos:altLabel": {
+        "en": [
+          "thermo-hydro-mechanical-chemical-biological coupling",
+          "thermo-hydro-mechanical-chemical coupling",
+          "thermo-hydro-mechanical coupling",
+          "thermo-hydrological coupling",
+          "hydro-mechanical coupling",
+          "thermo-mechanical coupling",
+          "THMCB",
+          "THMC",
+          "THM",
+          "TH",
+          "HM",
+          "TM"
+        ],
+        "ru": [
+          "THMCB модель",
+          "совместная термо-гидро-механико-химико-биологическая модель",
+          "совместная термо-гидро-механико-химическая модель",
+          "совместная термо-гидро-механическая модель",
+          "совместная термо-гидрологическая модель",
+          "совместная гидро-механическая модель",
+          "совместная термо-механическая модель",
+          "совместная термогидрологическая модель",
+          "совместная гидромеханическая модель",
+          "совместная термомеханическая модель",
+          "совместная тепло-гидро-механико-химико-биологическая модель",
+          "совместная тепло-гидро-механико-химическая модель",
+          "совместная тепло-гидро-механическая модель",
+          "совместная тепло-гидрологическая модель",
+          "совместная гидро-механическая модель",
+          "совместная тепло-механическая модель",
+          "совместная теплогидрологическая модель",
+          "совместная гидромеханическая модель",
+          "совместная тепломеханическая модель"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "Because a fully coupled THMC model may be too computationally intensive, models that are more tractable may be created by identifying which processes should be intimately linked and which processes should be weakly linked. The latter may allow a simpler formulation to be implemented in the code, or the effect may simply involve adjustment of parameter inputs. Strong linkages may go both ways or just be unidirectional (e.g., thermal affects mechanical, but mechanical does not significantly affect thermal conditions)."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ThermochemicalModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "thermo-chemical model",
+        "ru": "термохимическая модель"
+      },
+      "skos:altLabel": {
+        "en": [
+          "kinetic model",
+          "numerical model of thermo-chemical reactions"
+        ],
+        "ru": [
+          "модель химической кинетики"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ThermalGradient",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "thermal gradient",
+        "ru": "термический градиент"
+      },
+      "skos:altLabel": {
+        "en": [
+          "temperature gradient",
+          "temperature drop",
+          "temperature ratio",
+          "temperature difference",
+          "heat gradient",
+          "gradient"
+        ],
+        "ru": [
+          "тепловой градиент",
+          "температурный перепад",
+          "перепад температур",
+          "градиент температуры",
+          "градиент"
+        ]
+      },
+      "skos:definition": {
+        "en": "The change in temperature per unit of distance.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Gradient",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ThermalLoading",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "thermal loading",
+        "ru": "тепловая нагрузка"
+      },
+      "skos:definition": {
+        "en": "The thermal power of a quantity of heat generating materials over a given area or in a given volume; the units are power per unit area or per unit volume, respectively.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:ThermalConductivity",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "thermal conductivity",
+        "ru": "теплопроводность"
+      },
+      "skos:altLabel": {
+        "en": [
+          "heat conductivity"
+        ],
+        "ru": [
+          "коэффициент теплопроводности"
+        ]
+      },
+      "skos:definition": {
+        "en": "Thermal conductivity (often denoted k, λ, or κ) is the property of a material to conduct heat. It is evaluated primarily in terms of Fourier's Law for heat conduction. In general, thermal conductivity is a tensor property, expressing the anisotropy of the property. Heat transfer occurs at a lower rate in materials of low thermal conductivity than in materials of high thermal conductivity. Correspondingly, materials of high thermal conductivity are widely used in heat sink applications and materials of low thermal conductivity are used as thermal insulation. The thermal conductivity of a material may depend on temperature. The reciprocal of thermal conductivity is called thermal resistivity.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Conductivity",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:TransportModel",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "pathways model",
+        "ru": "модель переноса"
+      },
+      "skos:definition": {
+        "en": "A mathematical representation of mechanisms controlling the movement of finely dispersed or dissolved substances in fluids.",
+        "ru": "Математическая модель описывающая контроллируемое движение мелкодисперсных или растворенных веществ в жидкостях и газах."
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Model",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:URF",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "underground research facility",
+        "ru": "подземная исследовательская лаборатория"
+      },
+      "skos:altLabel": {
+        "en": [
+          "facility",
+          "urf"
+        ],
+        "ru": [
+          "лаборатория",
+          "ПИЛ"
+        ]
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "For the second stage, the fuel would be placed in an underground facility for a period of about 300 years. By that time the most active gamma ray emitters have burned off and the fuel becomes much safer to handle. The final stage would see the fuel moved to surface sites, but over time this was abandoned and the entire time was to be spent underground."
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:URL",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "underground research laboratory",
+        "ru": "подземная исследовательская лаборатория"
+      },
+      "skos:altLabel": {
+        "en": [
+          "laboratory",
+          "url"
+        ],
+        "ru": [
+          "лаборатория",
+          "ПИЛ"
+        ]
+      },
+      "skos:definition": {
+        "en": "A special underground laboratory, called an underground research laboratory (URL), may be built for in situ testing or tests may be carried out in an actual repository excavation.",
+        "ru": "Специальный тип подземной лаборатории для проведения натурных испытаний в реальных условиях пункта захоронения."
+      },
+      "skos:note": {
+        "en": [
+          "Only in such a facility can the full range of repository environment properties\nand waste repository system interactions be measured."
+        ],
+        "ru": [
+          "Основной задачей ПИЛ является изучение характеристик и свойств геологических пород на глубине 450-525 метров и подтверждение, на основании проведенных исследований, возможности окончательной изоляции радиоактивных отходов 1 и 2 классов (высоко- и среднеактивных долгоживущих РАО) в глубоких геологических формациях Нижнеканского массива."
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:UncertaintyAnalysis",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "uncertainty analysis",
+        "ru": "анализ неопределенности"
+      },
+      "skos:definition": {
+        "en": "An analysis of the amount of variation in the results of assessments or analyses due to incomplete knowledge about the current and future states of a system.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Analysis",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:UnsaturatedFlow",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "unsaturated flow",
+        "ru": "ненасыщенный поток"
+      },
+      "skos:definition": {
+        "en": "The flow of water in unsaturated soil by capillary action and gravity.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:UnsaturatedZone",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "unsaturated zone",
+        "ru": "ненасыщенная зона"
+      },
+      "skos:definition": {
+        "en": "A subsurface zone in which at least some interstices contain air or water vapour, rather than liquid water. Also referred to as the zone of aeration.",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:broader": "dict:Zone",
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:VirtualReality",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "virtual reality",
+        "ru": "виртуальная реальность"
+      },
+      "skos:altLabel": {
+        "en": [
+          "VR",
+          "AR",
+          "MR",
+          "augmented reality",
+          "mixed reality",
+          "augmented virtuality",
+          "hyper reality"
+        ],
+        "ru": [
+          "дополненная реальность",
+          "смешанная реальность"
+        ]
+      },
+      "skos:definition": {
+        "en": "An experience taking place within simulated and immersive environments that can be similar to or completely different from the real world and corresponding technology.",
+        "ru": "TODO"
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    },
+    {
+      "@id": "dict:Zone",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "en": "zone",
+        "ru": "зона"
+      },
+      "skos:definition": {
+        "en": "TODO",
+        "ru": "TODO"
+      },
+      "skos:note": {
+        "en": [
+          "TODO"
+        ],
+        "ru": [
+          "TODO"
+        ]
+      },
+      "skos:inScheme": "http://www.ibrae.ac.ru/rdf/dict"
+    }
+  ]
+}
