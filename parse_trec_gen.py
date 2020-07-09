@@ -97,7 +97,6 @@ if __name__ == '__main__':
     print('total files:', len(id2path))
 
 
-    texts = defaultdict(list)
     with open('trec_gen/final.goldstd.tsv.txt') as csvfile:
         reader = csv.reader(csvfile, delimiter='\t')
         for i, (label, file_id, start, length, tags) in tqdm(enumerate(reader)):
