@@ -163,9 +163,10 @@ if __name__ == '__main__':
     parser.add_argument('--labels', choices=['db', 'cluster'])
     parser.add_argument('--save', type=str, default=None)
     parser.add_argument('--plot', action='store_true')
+    parser.add_argument('--dataset', choices=['mouse', 'trecgen'], default='mouse')
     args = parser.parse_args()
 
-    conn = sqlite3.connect('data/mouse.sqlite')
+    conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
     stops = set(stopwords.words('english'))
 
     files = pd.read_sql('SELECT * FROM Files', conn)
