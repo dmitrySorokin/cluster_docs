@@ -1,6 +1,13 @@
 import numpy as np
 import altair as alt
 import pandas as pd
+import os
+import argparse
+from sklearn.metrics.cluster import *
+import sqlite3
+
+
+from vectorize import cluster
 
 
 def contingency_matrix(y, y_pred, df=pd.DataFrame(), X=None, X_pred=None,
@@ -247,3 +254,215 @@ def unsupervised_metrics(M, metrics_labels, types,
     p = (heatmap + text).properties(width=400, height=400)
     p.save(filename)
     return p
+
+
+def read(conn, name):
+    df = pd.read_sql(f'SELECT vec FROM {name}', conn)
+    vectors = []
+    for v in df['vec']:
+        vectors.append(list(map(float, v.split(','))))
+    return np.asarray(vectors)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--type', choices=['word2vec', 'word2vec_idf', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net'])
+    parser.add_argument('--type2', choices=['word2vec', 'word2vec_idf', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net'], default=None)
+    parser.add_argument('--cmat', action='store_true')
+    parser.add_argument('--metrics', action='store_true')
+
+    args = parser.parse_args()
+
+    conn = sqlite3.connect('data/mouse.sqlite')
+    files = pd.read_sql('SELECT * FROM Files', conn)
+
+    vectors = read(conn, args.type)
+    labels = cluster(vectors, 27)
+
+    if args.cmat:
+        width = 600
+        height = 600
+        cmap = 'tableau20'  # https://vega.github.io/vega/docs/schemes/
+        cm_sort = True
+        sort_type = 'rc'
+        inter_type = 'mat_leg'
+        if args.type2 is None:
+            db_labels = pd.read_sql("SELECT * FROM Labels", conn)
+            i2l = dict(zip(db_labels['label_id'], db_labels['label_desc']))
+            # expand files (one label per file)
+            y = [int(label_id) for i, ids in enumerate(files['label_ids'])
+                 for label_id in ids.split(',')]
+            y_labels = [i2l[x] for x in y]  # None
+            new_ids = [i for i, ids in enumerate(files['label_ids'])
+                       for label_id in ids.split(',')]
+            y_pred = [labels[i] for i in new_ids]
+            # y_pred = labels  # FIXME Only for --labels cluster
+            y_pred_labels = None
+            X = None
+            X_pred = np.array([vectors[i] for i in new_ids])
+            print(X_pred.shape)
+            new_file_id = [files['file_id'][i] for i in new_ids]
+            new_file_path = [files['file_path'][i] for i in new_ids]
+            new_label_ids = [files['label_ids'][i] for i in new_ids]
+            new_labels = [','.join(i2l[int(l)] for l in x.split(',')) for x in
+                          new_label_ids]
+            new_text = [files['text'][i] for i in new_ids]
+            df = pd.DataFrame({
+                'file_id': new_file_id,
+                'file_path': new_file_path,
+                'label_ids': new_label_ids,
+                'labels': new_labels,
+                'text': new_text})
+            df['labels'] = [','.join(i2l[int(l)] for l in x.split(','))
+                            for x in df['label_ids']]
+            df['file_name'] = [os.path.basename(x) for x in df['file_path']]
+            df['file_path'] = ['//' + x for x in df['file_path']]
+            df['collection_id'] = y
+            del df['text']  # due to performance issues
+            tooltip_cols = ['file_id', 'file_name', 'file_path', 'label_ids',
+                            'labels', 'collection_id']
+            table_cols = ['file_id', 'file_name', 'label',
+                          'label_id_pred', 'collection_id']
+            href = 'file_path'
+            cm_filename = f'cm_{args.type}.html'
+        else:
+            vectors2 = read(conn, args.type2)
+            labels2 = cluster(vectors2, n_clusters=20)
+            y = labels
+            y_labels = None
+            y_pred = labels2
+            y_pred_labels = None
+            X = vectors2
+            X_pred = vectors2
+            df = files
+            df['file_name'] = [os.path.basename(x) for x in df['file_path']]
+            df['file_path'] = ['//' + x for x in df['file_path']]
+            del df['text']  # due to performance issues
+            tooltip_cols = ['file_id', 'file_name', 'file_path']
+            table_cols = ['file_id', 'file_name', 'label_id', 'label_id_pred']
+            href = 'file_path'
+            cm_filename = f'cm_{args.type}_{args.type2}.html'
+        contingency_matrix(y=y,
+             y_pred=y_pred,
+             df=df,
+             X=X,
+             X_pred=X_pred,
+             tooltip_cols=tooltip_cols,
+             table_cols=table_cols,
+             href=href,
+             width=width,
+             height=height,
+             y_labels=y_labels,
+             y_pred_labels=y_pred_labels,
+             cmap=cmap,
+             filename=cm_filename,
+             sort=cm_sort,
+             sort_type=sort_type,
+             inter_type=inter_type)
+
+    if args.metrics:
+        # supervised
+        print('adjusted_mutual_info_score')  # -? to 1 -> 1 better
+        print(adjusted_mutual_info_score(y, y_pred))
+        print(adjusted_mutual_info_score(y_pred, y))
+        print('adjusted_rand_score')  # 0 to 1 -> 1 better
+        print(adjusted_rand_score(y, y_pred))
+        print(adjusted_rand_score(y_pred, y))
+        print('completeness_score')  # 0 to 1 -> 1 better
+        print(completeness_score(y, y_pred))
+        print(completeness_score(y_pred, y))
+        print('fowlkes_mallows_score')  # 0 to 1 -> 1 better
+        print(fowlkes_mallows_score(y, y_pred))
+        print(fowlkes_mallows_score(y_pred, y))
+        print('homogeneity_score')  # 0 to 1 -> 1 better
+        print(homogeneity_score(y, y_pred))
+        print(homogeneity_score(y_pred, y))
+        print('normalized_mutual_info_score')  # 0 to 1 -> 1 better
+        print(normalized_mutual_info_score(y, y_pred))
+        print(normalized_mutual_info_score(y_pred, y))
+        print('normalized_mutual_info_score')  # 0 to 1 -> 1 better
+        print(mutual_info_score(y, y_pred))
+        print(mutual_info_score(y_pred, y))
+        print('v_measure_score')  # 0 to 1 -> 1 better
+        print(v_measure_score(y, y_pred))
+        print(v_measure_score(y_pred, y))
+        # unsupervised
+        if X is not None:
+            print('calinski_harabasz_score')
+            print(calinski_harabasz_score(X, y))  # higher -> better
+            print('davies_bouldin_score')
+            print(davies_bouldin_score(X, y))  # -> 0 better
+            print('silhouette_score')
+            print(silhouette_score(X, y))
+            # -1 to 1 -1 for incorrect clustering
+            # +1 for highly dense clustering.
+            # Scores around zero indicate overlapping clusters.
+        print('calinski_harabasz_score')
+        print(calinski_harabasz_score(X_pred, y_pred))
+        print('davies_bouldin_score')
+        print(davies_bouldin_score(X_pred, y_pred))
+        print('silhouette_score')
+        print(silhouette_score(X_pred, y_pred))
+        # supervized
+        types = ['db', 'word2vec', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net']
+        paths = [os.path.join('data', x + '_vectors.npy') for x in types]
+        metrics = [adjusted_mutual_info_score,
+                   adjusted_rand_score, fowlkes_mallows_score,
+                   completeness_score, homogeneity_score, v_measure_score,
+                   normalized_mutual_info_score, mutual_info_score]
+        M = np.zeros((len(metrics), len(types), len(types)))
+        for i, (p, t) in enumerate(zip(paths, types)):
+            if t == 'db':
+                db_labels = pd.read_sql("SELECT * FROM Labels", conn)
+                i2l = dict(zip(db_labels['label_id'], db_labels['label_desc']))
+                # expand files (one label per file)
+                y = [int(label_id) for i, ids in enumerate(files['label_ids'])
+                     for label_id in ids.split(',')]
+                new_ids = [i for i, ids in enumerate(files['label_ids'])
+                           for label_id in ids.split(',')]
+            else:
+                if not os.path.exists(p):
+                    continue
+                vec = np.load(p)
+                y = cluster(vec, n_clusters=20)
+            for j, (p2, t2) in enumerate(zip(paths, types)):
+                print(i, j, t, t2)
+                if t2 == 'db':
+                    db_labels = pd.read_sql("SELECT * FROM Labels", conn)
+                    i2l = dict(
+                        zip(db_labels['label_id'], db_labels['label_desc']))
+                    # expand files (one label per file)
+                    y_pred = [int(label_id) for i, ids in
+                              enumerate(files['label_ids'])
+                              for label_id in ids.split(',')]
+                    new_ids = [i for i, ids in enumerate(files['label_ids'])
+                               for label_id in ids.split(',')]
+                    for k, m in enumerate(metrics):
+                        if t != 'db':
+                            M[k, i, j] = m([y[i] for i in new_ids], y_pred)
+                        else:
+                            M[k, i, j] = m(y, y_pred)
+                else:
+                    if not os.path.exists(p2):
+                        continue
+                    vec2 = np.load(p2)
+                    y_pred = cluster(vec2, n_clusters=20)
+                    if t == 'db':
+                        y_pred = [y_pred[i] for i in new_ids]
+                    for k, m in enumerate(metrics):
+                        M[k, i, j] = m(y, y_pred)
+        metrics(M, [m.__name__ for m in metrics], types)
+        # unsupervized
+        types = ['word2vec', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net']
+        paths = [os.path.join('data', x + '_vectors.npy') for x in types]
+        metrics = [calinski_harabasz_score, davies_bouldin_score,
+                   silhouette_score]
+        M = np.zeros((len(metrics), len(types)))
+        for i, m in enumerate(metrics):
+            for j, (p, t) in enumerate(zip(paths, types)):
+                if not os.path.exists(p):
+                    continue
+                vec = np.load(p)
+                y = cluster(vec, n_clusters=20)
+                M[i, j] = m(vec, y)
+        unsupervised_metrics(M, [m.__name__ for m in metrics], types)
