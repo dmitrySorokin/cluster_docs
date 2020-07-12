@@ -11,7 +11,7 @@ from tqdm import tqdm
 from utils import cleanup, normalize
 
 
-TOPIS_URL = 'https://dmice.ohsu.edu/trec-gen/data/2006/scripts/final.goldstd.tsv.txt'
+TOPIS_URL = 'https://dmice.ohsu.edu/trec-gen/data/2007/scripts/final.goldstd.tsv.txt'
 DOCS_URL = 'https://dmice.ohsu.edu/trec-gen/data/2006/documents/'
 
 
@@ -34,20 +34,18 @@ def unzip(path_from='trec_gen/zips', path_to='trec_gen/files'):
             zip_ref.extractall(path_to)
 
 
-def write_text(cur, file_id, file_path, label, text, start, length):
+def write_text(cur, file_id, file_path, label, text):
     text = cleanup(text)
     text = normalize(text)
     cur.execute(
             'INSERT INTO Files ('
-            'file_id, file_path, label_ids, text, start, length) VALUES '
-            '({}, "{}", "{}", "{}", {}, {})'.format(
+            'file_id, file_path, label_ids, text) VALUES '
+            '({}, "{}", "{}", "{}")'.format(
                 file_id, 
                 file_path, 
                 label, 
-                text,
-                start, 
-                length
-            ))
+                text
+    ))
 
 
 if __name__ == '__main__':
@@ -62,10 +60,7 @@ if __name__ == '__main__':
         'file_id INTEGER NOT NULL PRIMARY KEY, '
         'file_path TEXT NOT NULL, '
         'label_ids TEXT NOT NULL, '
-        'text TEXT NOT NULL, '
-        'start INTEGER NOT NULL, '
-        'length INTEGER NOT NULL'
-        ')')
+        'text TEXT NOT NULL)')
     cursor.execute(
         'CREATE TABLE Labels('
         'label_id INTEGER NOT NULL PRIMARY KEY, '
@@ -74,7 +69,7 @@ if __name__ == '__main__':
     conn.commit()
 
     label2desc = {}
-    with open('trec_gen/2006topics.txt', 'r', encoding=' Windows-1252') as top:
+    with open('trec_gen/2007topics.txt', 'r', encoding='Windows-1252') as top:
         for line in top.read().split('\n')[:-1]:
             label2desc[int(line[1:4])] = line[5:]
     print('total labels:', len(label2desc))
@@ -97,7 +92,8 @@ if __name__ == '__main__':
     print('total files:', len(id2path))
 
 
-    with open('trec_gen/final.goldstd.tsv.txt') as csvfile:
+    files = defaultdict(set)
+    with open('trec_gen/trecgen2007.gold.standard.tsv.txt', encoding='Windows-1252') as csvfile:
         reader = csv.reader(csvfile, delimiter='\t')
         for i, (label, file_id, start, length, tags) in tqdm(enumerate(reader)):
             start = int(start)
@@ -106,14 +102,24 @@ if __name__ == '__main__':
             if file_id not in id2path:
                 print('missing', file_id)
             else:
-                with open(id2path[file_id], 'rb') as doc:
-                    #print(id2path[file_id], start, length, tags)
-                    #print(f'Q: "{label2desc[label]}"')
-                    text = doc.read()
-                    text = text[start: start + length]
-                    text = text.decode('utf8')
-                    text = BeautifulSoup(text, 'html.parser').text
-                    #print(f'A: "{text}"')
-                    write_text(cursor, i, id2path[file_id], label, text, start, length)
-                    conn.commit()
+                files[file_id].add(label)
+                #with open(id2path[file_id], 'rb') as doc:
+                #    #print(id2path[file_id], start, length, tags)
+                #    #print(f'Q: "{label2desc[label]}"')
+                #    text = doc.read()
+                #    text = text[start: start + length]
+                #    text = text.decode('utf8')
+                #    text = BeautifulSoup(text, 'html.parser').text
+                #    #print(f'A: "{text}"')
+                #    write_text(cursor, i, id2path[file_id], label, text, start, length)
+                #    conn.commit()
+
+    single_topic = list(filter(lambda key: len(files[key]) == 1, files))
+    print('single topic files', len(single_topic))
+
+    for file_id in tqdm(single_topic):
+        with open(id2path[file_id], 'r', encoding='Windows-1252') as doc:
+            text = BeautifulSoup(doc.read(), 'html.parser').text
+            write_text(cursor, file_id, id2path[file_id], *files[file_id], text)
+            conn.commit()
 
