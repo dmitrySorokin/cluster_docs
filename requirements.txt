@@ -1,0 +1,10 @@
+gensim
+matplotlib
+nltk
+numpy
+pandas
+regex
+requests
+scipy
+sklearn
+tqdm
