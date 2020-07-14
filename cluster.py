@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.metrics.cluster import adjusted_mutual_info_score, silhouette_score
+import argparse
 
 
 def read(conn, name):
@@ -29,12 +30,17 @@ def cluster(vec, n_clusters):
 
 
 if __name__ == '__main__':
-    conn = sqlite3.connect('data/mouse.sqlite')
-    vector_names = ['word2vec', 'word2vec_tfidf', 'word2vec_idf', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net']
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dataset', choices=['mouse', 'trecgen', '20ng'])
+    args = parser.parse_args()
+   
+    conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
+    vector_names = ['word2vec', 'pv_dm', 'pv_dbow']
+ 
     for name in vector_names:
         v, true_labels = read(conn, name)
-        cluster_labels = cluster(v, 27)
-        print('{}: {:.2f}, {:.2f}'.format(
+        cluster_labels = cluster(v, len(set(true_labels)))
+        print('{}: {:.4f}, {:.4f}'.format(
             name,
             adjusted_mutual_info_score(cluster_labels, true_labels),
             silhouette_score(v, cluster_labels)

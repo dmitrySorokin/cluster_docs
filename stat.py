@@ -4,7 +4,7 @@ import argparse
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', choices=['mouse', 'trecgen'])
+    parser.add_argument('--dataset', choices=['mouse', 'trecgen', '20ng'])
     args = parser.parse_args()
 
     conn = sqlite3.connect(f'data/{args.dataset}.sqlite')

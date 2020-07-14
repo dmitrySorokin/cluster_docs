@@ -20,20 +20,30 @@ import json
 from pprint import pprint
 
 
-def w2v(data, use_tfidf=False, model_path='data/word2vec_sg0'):
-    if os.path.isfile(model_path):
-        model = Word2Vec.load(model_path)
-    else:
-        model = Word2Vec(data, size=100, window=5, min_count=5, workers=4, iter=15, sg=0)
-        model.save(model_path)
-        print('Model Saved:', model_path)
+def w2v(data, use_tfidf=False, use_idf=False, model_path='data/word2vec_sg0'):
+    model = Word2Vec(
+        data, 
+        size=100, 
+        window=5, 
+        min_count=5, 
+        workers=4, 
+        iter=20, 
+        sg=0
+    )
 
-    tfidf = TfidfVectorizer(tokenizer=lambda x: x, stop_words=[], lowercase=False)
-    matrix = tfidf.fit_transform(data).toarray()
-    matrix = tfidf.idf_
-    feature_names = tfidf.get_feature_names()
-    tfidf_score = {nm: val for nm, val in zip(feature_names, matrix.T)}
-    idf_score = {nm: val for nm, val in zip(feature_names, tfidf.idf_)}
+    #if os.path.isfile(model_path):
+    #    model = Word2Vec.load(model_path)
+    #else:
+    #    model = Word2Vec(data, size=100, window=5, min_count=5, workers=4, iter=15, sg=0)
+    #    model.save(model_path)
+    #    print('Model Saved:', model_path)
+
+    if use_tfidf or use_idf:
+        tfidf = TfidfVectorizer(tokenizer=lambda x: x, stop_words=[], lowercase=False)
+        matrix = tfidf.fit_transform(data).toarray()
+        feature_names = tfidf.get_feature_names()
+        tfidf_score = {nm: val for nm, val in zip(feature_names, matrix.T)}
+        idf_score = {nm: val for nm, val in zip(feature_names, tfidf.idf_)}
 
     result = []
     for text_id, text in enumerate(data):
@@ -41,9 +51,10 @@ def w2v(data, use_tfidf=False, model_path='data/word2vec_sg0'):
         for word in text:
             if word in model.wv.vocab:
                 word_vectors.append(model.wv[word])
-                if use_tfidf:
+                if use_idf:
                     word_vectors[-1] = word_vectors[-1] * idf_score.get(word)
-                    #word_vectors[-1] = word_vectors[-1] * tfidf_score.get(word)[text_id]
+                if use_tfidf:
+                    word_vectors[-1] = word_vectors[-1] * tfidf_score.get(word)[text_id]
         if len(word_vectors) > 0:
             result.append(np.mean(word_vectors, axis=0))
         else:
@@ -51,18 +62,26 @@ def w2v(data, use_tfidf=False, model_path='data/word2vec_sg0'):
     return np.asarray(result)
 
 
-def d2v(data, ids, model_path='data/doc2vec_dm1'):
+def d2v(data, ids, dm, model_path):
     tagged_data = [
         TaggedDocument(words=text, tags=[text_id])
         for text, text_id in zip(data, ids)
     ]
 
-    if os.path.isfile(model_path):
-        model = Doc2Vec.load(model_path)
-    else:
-        model = Doc2Vec(tagged_data, vector_size=100, window=5, min_count=5, workers=4, epochs=15, dm=1)
-        model.save(model_path)
-        print("Model Saved:", model_path)
+    model = Doc2Vec(
+        tagged_data, 
+        vector_size=100, 
+        window=5, 
+        min_count=5, 
+        workers=4, 
+        epochs=20, 
+        dm=dm)
+    #if os.path.isfile(model_path):
+    #    model = Doc2Vec.load(model_path)
+    #else:
+    #    model = Doc2Vec(tagged_data, vector_size=100, window=5, min_count=5, workers=4, epochs=15, dm=dm)
+    #    model.save(model_path)
+    #    print("Model Saved:", model_path)
 
 
     result = []
@@ -72,12 +91,12 @@ def d2v(data, ids, model_path='data/doc2vec_dm1'):
 
 
 def lsa(corpus):
-    tfidf = TfidfVectorizer().fit_transform(corpus).toarray()
+    tfidf = TfidfVectorizer().fit_transform(corpus)#.toarray()
     return TruncatedSVD(n_components=100).fit_transform(tfidf)
 
 
 def lda(corpus):
-    tf = CountVectorizer().fit_transform(corpus).toarray()
+    tf = CountVectorizer().fit_transform(corpus)#.toarray()
     return LatentDirichletAllocation(
             n_components=100,
             random_state=42,
@@ -159,11 +178,11 @@ def lbl2color(l):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', choices=[
-        'word2vec', 'word2vec_idf','doc2vec', 'lsa', 'lda', 'rdf', 'topic_net'])
+        'word2vec', 'word2vec_idf', 'word2vec_tfidf','pv_dm', 'pv_dbow', 'lsa', 'lda', 'rdf', 'topic_net'])
     parser.add_argument('--labels', choices=['db', 'cluster'])
     parser.add_argument('--save', type=str, default=None)
     parser.add_argument('--plot', action='store_true')
-    parser.add_argument('--dataset', choices=['mouse', 'trecgen'], default='mouse')
+    parser.add_argument('--dataset', choices=['mouse', 'trecgen', '20ng'])
     args = parser.parse_args()
 
     conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
@@ -175,11 +194,15 @@ if __name__ == '__main__':
     text_ids = list(map(int, files['file_id']))
 
     if args.type == 'word2vec':
-        vectors = w2v(texts)
+        vectors = w2v(texts, model_path=f'data/word2vec_sg0_{args.dataset}')
     elif args.type == 'word2vec_idf':
+        vectors = w2v(texts, use_idf=True)
+    elif args.type == 'word2vec_tfidf':
         vectors = w2v(texts, use_tfidf=True)
-    elif args.type == 'doc2vec':
-        vectors = d2v(texts, text_ids)
+    elif args.type == 'pv_dm':
+        vectors = d2v(texts, text_ids, dm=1, model_path=f'data/pvdm_{args.dataset}')
+    elif args.type == 'pv_dbow':
+        vectors = d2v(texts, text_ids, dm=0, model_path=f'data/pvdbow_{args.dataset}')
     elif args.type == 'lsa':
         vectors = lsa(files['text'])
     elif args.type == 'lda':
@@ -232,5 +255,8 @@ if __name__ == '__main__':
         plt.axis('off')
         plt.show()
 
+    print(vectors.shape)
+    labels = np.asarray(labels).ravel()
+    print(labels.shape)
     score = silhouette_score(vectors, labels)
     print('silhouette_score', score)

@@ -10,6 +10,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import log_loss
 from collections import defaultdict
 from sklearn.metrics import f1_score, precision_score, recall_score
+import argparse
 
 
 def read(conn, name):
@@ -66,11 +67,15 @@ def train_test_split(vectors, labels, test_size, random_state):
     return np.asarray(vectors_train), np.asarray(vectors_test), np.asarray(labels_train), np.asarray(labels_test)
 
 
-
-
 if __name__ == '__main__':
-    conn = sqlite3.connect('data/mouse.sqlite')
-    vector_names = ['word2vec', 'word2vec_tfidf', 'word2vec_idf', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net']
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dataset', choices=['mouse', 'trecgen', '20ng'])
+    args = parser.parse_args()
+    #vector_names = ['word2vec', 'word2vec_tfidf', 'word2vec_idf', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net']
+    
+    conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
+    vector_names = ['word2vec', 'pv_dm', 'pv_dbow']
+ 
     for name in vector_names:
         v, true_labels = read(conn, name)
         #print(true_labels.shape)
@@ -86,7 +91,7 @@ if __name__ == '__main__':
         #pred = clf.predict_proba(v_test)
         #loss = log_loss(l_test, pred)
         l_pred = clf.predict(v_test)
-        print('{}, {:.2f}'.format(
+        print('{}, {:.4f}'.format(
             name, f1_score(l_test, l_pred, average="weighted"))
         )
         #print(name, loss)
