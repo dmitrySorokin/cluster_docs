@@ -187,6 +187,7 @@ if __name__ == '__main__':
 
     conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
     stops = set(stopwords.words('english'))
+    stops.add('http')
 
     files = pd.read_sql('SELECT * FROM Files', conn)
 
