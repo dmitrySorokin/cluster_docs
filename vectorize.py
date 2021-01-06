@@ -20,30 +20,21 @@ import json
 from pprint import pprint
 
 
-def w2v(data, use_tfidf=False, use_idf=False, model_path='data/word2vec_sg0'):
-    model = Word2Vec(
-        data, 
-        size=100, 
-        window=5, 
-        min_count=5, 
-        workers=4, 
-        iter=20, 
-        sg=0
-    )
+def bert(vec_path):
+    vectors = []
+    with open(vec_path, 'r') as file:
+        for line in file.readlines():
+            vectors.append(json.loads(line))
+    return np.asarray(vectors)
 
-    #if os.path.isfile(model_path):
-    #    model = Word2Vec.load(model_path)
-    #else:
-    #    model = Word2Vec(data, size=100, window=5, min_count=5, workers=4, iter=15, sg=0)
-    #    model.save(model_path)
-    #    print('Model Saved:', model_path)
 
-    if use_tfidf or use_idf:
-        tfidf = TfidfVectorizer(tokenizer=lambda x: x, stop_words=[], lowercase=False)
-        matrix = tfidf.fit_transform(data).toarray()
-        feature_names = tfidf.get_feature_names()
-        tfidf_score = {nm: val for nm, val in zip(feature_names, matrix.T)}
-        idf_score = {nm: val for nm, val in zip(feature_names, tfidf.idf_)}
+def w2v(data, model_path='data/word2vec_sg0'):
+    if os.path.isfile(model_path):
+        model = Word2Vec.load(model_path)
+    else:
+        model = Word2Vec(data, size=100, window=5, min_count=5, workers=4, iter=15, sg=0)
+        model.save(model_path)
+        print('Model Saved:', model_path)
 
     result = []
     for text_id, text in enumerate(data):
@@ -51,10 +42,6 @@ def w2v(data, use_tfidf=False, use_idf=False, model_path='data/word2vec_sg0'):
         for word in text:
             if word in model.wv.vocab:
                 word_vectors.append(model.wv[word])
-                if use_idf:
-                    word_vectors[-1] = word_vectors[-1] * idf_score.get(word)
-                if use_tfidf:
-                    word_vectors[-1] = word_vectors[-1] * tfidf_score.get(word)[text_id]
         if len(word_vectors) > 0:
             result.append(np.mean(word_vectors, axis=0))
         else:
@@ -68,21 +55,12 @@ def d2v(data, ids, dm, model_path):
         for text, text_id in zip(data, ids)
     ]
 
-    model = Doc2Vec(
-        tagged_data, 
-        vector_size=100, 
-        window=5, 
-        min_count=5, 
-        workers=4, 
-        epochs=20, 
-        dm=dm)
-    #if os.path.isfile(model_path):
-    #    model = Doc2Vec.load(model_path)
-    #else:
-    #    model = Doc2Vec(tagged_data, vector_size=100, window=5, min_count=5, workers=4, epochs=15, dm=dm)
-    #    model.save(model_path)
-    #    print("Model Saved:", model_path)
-
+    if os.path.isfile(model_path):
+        model = Doc2Vec.load(model_path)
+    else:
+        model = Doc2Vec(tagged_data, vector_size=100, window=5, min_count=5, workers=4, epochs=15, dm=dm)
+        model.save(model_path)
+        print("Model Saved:", model_path)
 
     result = []
     for doc in tagged_data:
@@ -178,7 +156,7 @@ def lbl2color(l):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', choices=[
-        'word2vec', 'word2vec_idf', 'word2vec_tfidf','pv_dm', 'pv_dbow', 'lsa', 'lda', 'rdf', 'topic_net'])
+        'word2vec', 'pv_dm', 'pv_dbow', 'lsa', 'lda', 'rdf', 'topic_net', 'bert'])
     parser.add_argument('--labels', choices=['db', 'cluster'])
     parser.add_argument('--save', type=str, default=None)
     parser.add_argument('--plot', action='store_true')
@@ -196,10 +174,6 @@ if __name__ == '__main__':
 
     if args.type == 'word2vec':
         vectors = w2v(texts, model_path=f'data/word2vec_sg0_{args.dataset}')
-    elif args.type == 'word2vec_idf':
-        vectors = w2v(texts, use_idf=True)
-    elif args.type == 'word2vec_tfidf':
-        vectors = w2v(texts, use_tfidf=True)
     elif args.type == 'pv_dm':
         vectors = d2v(texts, text_ids, dm=1, model_path=f'data/pvdm_{args.dataset}')
     elif args.type == 'pv_dbow':
@@ -212,6 +186,8 @@ if __name__ == '__main__':
         vectors = rdf(files['text'])
     elif args.type == 'topic_net':
         vectors = topic_net(files)
+    elif args.type == 'bert':
+        vectors = bert(vec_path=f'data/bert_{args.dataset}_vecs.json')
     else:
         assert False, '{} is not implemented'.format(args.type)
 
@@ -256,6 +232,7 @@ if __name__ == '__main__':
         plt.axis('off')
         plt.show()
 
+    exit(0)
     print(vectors.shape)
     labels = np.asarray(labels).ravel()
     print(labels.shape)

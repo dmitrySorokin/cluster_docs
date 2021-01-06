@@ -74,10 +74,13 @@ if __name__ == '__main__':
     #vector_names = ['word2vec', 'word2vec_tfidf', 'word2vec_idf', 'doc2vec', 'lsa', 'lda', 'rdf', 'topic_net']
     
     conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
-    vector_names = ['word2vec', 'pv_dm', 'pv_dbow']
+    vector_names = ['bert', 'word2vec', 'pv_dbow', 'lsa', 'lda']
  
     for name in vector_names:
-        v, true_labels = read(conn, name)
+        try:
+            v, true_labels = read(conn, name)
+        except pd.io.sql.DatabaseError as e:
+            continue
         #print(true_labels.shape)
         #print(true_labels[0])
         v_train, v_test, l_train, l_test = train_test_split(v, true_labels, test_size=0.5, random_state=0)

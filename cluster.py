@@ -35,7 +35,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
    
     conn = sqlite3.connect(f'data/{args.dataset}.sqlite')
-    vector_names = ['word2vec', 'pv_dm', 'pv_dbow']
+    vector_names = ['bert', 'word2vec', 'pv_dbow', 'lsa', 'lda']
  
     for name in vector_names:
         v, true_labels = read(conn, name)
