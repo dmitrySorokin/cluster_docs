@@ -27,6 +27,11 @@ def cleanup(text):
     text = re.sub(r'([^a-zA-Z ])', '', text)
     return text
 
+def cleanup_punkt(text):
+    text = text.replace('\n', ' ')
+    text = re.sub(r'([^a-zA-Z.,!?; ])', '', text)
+    return text
+
 
 def parse(path):
     try:

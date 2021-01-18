@@ -2,10 +2,20 @@ from sklearn.datasets import fetch_20newsgroups
 import sqlite3
 from tqdm import tqdm
 
-from utils import cleanup, normalize
+from utils import cleanup, normalize, cleanup_punkt
 
 
 def write_text(cur, file_id, file_path, label, text):
+    cur.execute(
+            'INSERT INTO RawFiles ('
+            'file_id, file_path, label_ids, text) VALUES '
+            '({}, "{}", "{}", "{}")'.format(
+                file_id,
+                file_path,
+                label,
+                cleanup_punkt(text)
+    ))
+
     text = cleanup(text)
     text = normalize(text)
     cur.execute(
@@ -19,7 +29,7 @@ def write_text(cur, file_id, file_path, label, text):
     ))
 
 
-if __name__  == '__main__':
+if __name__ == '__main__':
     newsgroups = fetch_20newsgroups(subset='all') #remove=('headers', 'footers', 'quotes')
 
     conn = sqlite3.connect('20ng.sqlite')
@@ -27,6 +37,12 @@ if __name__  == '__main__':
 
     cursor.execute(
         'CREATE TABLE Files('
+        'file_id INTEGER NOT NULL PRIMARY KEY, '
+        'file_path TEXT NOT NULL, '
+        'label_ids TEXT NOT NULL, '
+        'text TEXT NOT NULL)')
+    cursor.execute(
+        'CREATE TABLE RawFiles('
         'file_id INTEGER NOT NULL PRIMARY KEY, '
         'file_path TEXT NOT NULL, '
         'label_ids TEXT NOT NULL, '
